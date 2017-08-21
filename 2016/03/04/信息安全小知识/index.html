@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="AONOSORA">
+    
+    <meta name="description" content="今生今世轮回尽, 来世愿为幻想乡">
+    
+    
+    
+    
+    
+    
+    <title>信息安全小知识 | senrenbankaの部落格</title>
+    <!-- inject:style -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <!-- endinject -->
+    <style>
+        .cube-loading {
+            top: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('/images/lg/loading.gif') no-repeat center center;
+            background-color: rgba(0,0,0,.7);
+        }
+
+        .cube-loading.out {
+            display: none;
+        }
+
+        .cube-loading:before {
+            display: block;
+            content: '加载中';
+            position: relative;
+            width: 100%;
+            top: 50%;
+            right: -50%;
+            color: #fff;
+        }
+
+        @media(max-width: 768px) {
+            .cube-loading:before {
+                font-size: 1.2em;
+                transform: translate(-24px,20px);
+                -webkit-transform: translate(-24px,20px);
+                -o-transform: translate(-24px,20px);
+                -ms-transform: translate(-24px,20px);
+            }
+        }
+
+        @media(min-width: 768px) {
+            .cube-loading:before {
+
+            }
+        }
+    </style>
+    
+</head>
+<body>
+<div class="cube-body">
+    <nav id="cube-top-memu" class="cube-menu">
+    <ul class="cube-menu-collapse">
+        
+        <li>
+            <i class="cube-icon cube-icon-home" aria-hidden="true"></i>
+            <a href="/">首页</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-archive" aria-hidden="true"></i>
+            <a href="/archives">归档</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-tags" aria-hidden="true"></i>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-about" aria-hidden="true"></i>
+            <a href="/about-me">关于我</a>
+        </li>
+        
+    </ul>
+</nav>
+<nav class="cube-side-menu" id="cube-side-menu">
+    <ul class="cube-menu-list">
+        
+        <li>
+            <a class="lrc-control">开启歌词</a>
+        </li>
+        
+        <li>
+            <a class="scroll-to-top">回到顶部</a>
+        </li>
+    </ul>
+</nav>
+    <header class="cube-header" id="cube-header">
+    <img src=" http://cube-1252774894.cosgz.myqcloud.com/background.png " alt="头部背景图片">
+    
+    <div class="cube-type">
+        <span class="cube-typed-title">senrenbankaの部落格</span>
+        <span class="cube-typed-cursor">|</span>
+    </div>
+    
+</header>
+
+    <style>
+        nav.cube-menu:before {
+            content: '';
+            visibility: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 44px;
+        
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+        
+            z-index: -1;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-repeat: no-repeat;
+            background-position: center -356px;
+            background-size: cover;
+            background-color: transparent;
+        }
+
+        header.cube-background.cube-header-background {
+            visibility: hidden;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-position: center -400px;
+        }
+    </style>
+    <header class="cube-background cube-header-background">
+        
+        <div class="cube-type">
+            <span class="cube-typed-title">senrenbankaの部落格</span>
+            <span class="cube-typed-cursor">|</span>
+        </div>
+        
+    </header>
+    <div class="load-header-background"></div>
+    <script>
+        (function (window) {
+
+            window.headerModule = {}
+            window.headerModule.image = {
+                width: '2000',
+                height: '1414'
+            }
+
+        })(window)
+    </script>
+    
+    <div class="cube-content">
+        <div class="cube-left">
+            <div class="cube-article">
+    <h1 class="title">信息安全小知识</h1>
+    
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2016-03-04
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+    <a href="/tags/网络相关/">#网络相关</a>
+    
+</div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <h3 id="引言"><a href="#引言" class="headerlink" title="引言:"></a>引言:</h3><p>上次写了篇关于SSL协议的<a href="http://codingguang.me/2016/03/03/浅析SSL协议/#more" target="_blank" rel="external">博文</a>,感觉意犹未尽,这次来讲讲其他一些信息安全的知识,大概就侃侃这些:</p>
+<blockquote>
+<p>加密算法<br>  摘要算法<br>  数字签名<br>  数字信封  </p>
+</blockquote>
+<hr>
+<h3 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法:"></a>加密算法:</h3><p>上次讲过,SSL握手协议中客户端将与服务端协商得到的共享对称密钥进行信息的加密,再用服务端给的公钥进行加密,传输给服务端,服务端用自己的私有密钥进行解密,再用对称密钥解密得到客户端传输的数据信息,这个过程中牵扯到两种加密算法:</p>
+<blockquote>
+<p>私钥加密(对称加密)<br>    公钥加密(非对称加密)</p>
+</blockquote>
+<p>先讲讲私钥加密:<br>    私钥加密的加密密钥和解密密钥是一样的,所以又称为对称加密,DES,AES加密算法就是私钥加密,要求你有正确的密钥才能解开密文,所以,在这种情况下,密钥的保存相当重要,而加密的算法被公开也不会影响数据的安全性(单单只是加密算法而没有密钥解开密文的可能性几乎为0),如果密钥被截取,那么第三方可能通过逐一尝试算法进行解密,信息很容易被第三方窃取,所以如果用的是私钥加密,那么密钥是一定要保管好的</p>
+<p>再谈谈公钥加密:<br>    公钥加密的加密密钥和解密密钥是不同的,所以又称其为非对称加密,这方面对应的算法有RSA非对称算法,举个例子:A有自己的私钥,B给A的公钥,B有自己的私钥,A给B的公钥,A写了一段信息,用B给的公钥进行加密,再发送给B,防止有人偷看信息,B拿到信息之后再用自己的私钥解开密文,拿到A的信息,反之,若B要发送给A信息,则只需要用A的公钥加密,A端用自己的私钥解密就行了。下图展示了公钥加密的过程:<img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E5%85%AC%E9%92%A5%E5%8A%A0%E5%AF%86.jpg" alt="公钥加密"></p>
+<p>公钥加密与私密加密各有优缺点,私钥加密只用一把密钥进行加密解密,安全性相对公钥加密要低,但是比公钥加密要快上许多,如果遇上大信息量的加密解密,私钥加密要比公钥加密快上几千倍!一般的想法是:将大信息量用私钥加密进行过加密,得到的密文比明文要小了许多,这时再用公钥加密会节省许多时间,比起只用公钥加密要快得多。<br><a id="more"></a></p>
+<h3 id="摘要算法"><a href="#摘要算法" class="headerlink" title="摘要算法:"></a>摘要算法:</h3><p>摘要算法是不可逆的算法,一段经过摘要算法进行加密的密文是不可能解出原本的明文的,只能通过将相同的明文进行加密才能得到相同的结果,摘要算法主要用在’数字签名’中。摘要算法的特点是,不管对于多长的明文,都可以加密成固定长度的密文,比如md5固定是32位或是16位,每一位都是16进制,常见的摘要算法包括md5,sha1,sha256。一般我们得到一段摘要算法加密的明文,可以去<a href="http://cmd5.com/" target="_blank" rel="external">cmd5</a>尝试(碰碰运气而已，有些加了盐的密文根本就找不到的,还有大部分是要付费查询的…)</p>
+<h3 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名:"></a>数字签名:</h3><p>什么是数字签名?数字签名就是将消息用发送者的私钥进行加密,与原文一起进行打包传输给接收者，接收者采用发送者给的公钥进行密文解密,如果解出来的明文和原文是一样的,则证明消息是正确的没有被篡改过。在很多场合数字签名得到了使用,比如网上交易,采用数字签名可以保证网络传输的完整性,验证发送者的身份,并且发送者不可抵赖行为的发生。</p>
+<p>数字签名采用的是公钥加密,保证数据不会被篡改,如果有第三方截取信息,用公钥对摘要进行解密,那么他是无法再生成一段摘要的,因为他拿不到原本发送者的私钥,如果他用他自己的私钥进行加密,那么他必须将他自己的公钥替换掉接收者持有的原本发送者的公钥(这并不现实,但是还是有可能的),否则,接收者用发送者的公钥进行解密,会得到不一样或是根本无法解密,也就可以断定信息被第三方动了手脚,从这一方面给来看,数字签名即保证了数据完整，又保证了消息的发送方,并且发送方是不可否认自己发过这个信息的。符合网络安全的四大要素:</p>
+<blockquote>
+<p>信息传输的保密性、数据交换的完整性、发送信息的不可否认性、交易者身份的确定性。</p>
+</blockquote>
+<p>从上述我们可以知道,数字签名的技术基础是公钥加密,但是公钥加密的速度是很慢的,如果发送的信息太长,那么加密解密的时间消耗会非常大,那么有什么相应的解决方法呢?——答案是我们刚才讲过的摘要算法,摘要算法产生的长度是固定的,而将明文先进行摘要,再将得到的结果进行公钥加密,接收者解密后再将原文用相同的摘要算法进行加密,如果得到的结果是一样的话,那么可以断定信息是正确的,这种方法既加快了效率,又能保证足够的安全性。</p>
+<p>数字签名的实现方法有挺多的,比如RSA签名,这里给出两个RSA签名的实现过程图(分别为保密机制的和非保密机制的):</p>
+<h4 id="非保密机制的RSA签名："><a href="#非保密机制的RSA签名：" class="headerlink" title="非保密机制的RSA签名："></a>非保密机制的RSA签名：</h4><p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/RSA%E7%AD%BE%E5%90%8D1.jpg" alt="非保密机制的RSA签名"></p>
+<h4 id="保密机制的RSA签名"><a href="#保密机制的RSA签名" class="headerlink" title="保密机制的RSA签名:"></a>保密机制的RSA签名:</h4><p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E4%BF%9D%E5%AF%86RSA%E7%AD%BE%E5%90%8D.jpg" alt="保密机制的RSA签名"></p>
+<h3 id="数字信封"><a href="#数字信封" class="headerlink" title="数字信封:"></a>数字信封:</h3><p>数字信封指的是:先用对称密钥对信息进行加密,加密后用非对称密钥(接收者的公钥)对对称密钥进行加密,然后将加密的密钥和加密的信息打包给接收者,这个过程既加快了速率,又保证了安全性,如果你看过上面的保密机制的RSA签名的话,你就会发现保密机制的RSA签名就用了数字信封,而且现在的数字证书也用到了这种方法。</p>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2016/03/08/Python之Tkinter/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                Python文档之Tkinter
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2016/03/03/浅析SSL协议/">
+                浅析SSL协议
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
+        </div>
+        <div class="cube-right">
+            
+
+<div class="cube-search cube-sidebar" id="cube-search">
+    <div class="search-container">
+        <input type="text" placeholder="搜索" class="cube-search-input" id="cube-search-input">
+        <i class="cube-icon cube-icon-search cube-search-submit" aria-hidden="true"></i>
+    </div>
+    <!-- TODO 通过给window赋一个全局变量，通过脚本赋值 -->
+</div>
+<script>
+    (function (window) {
+        'use strict';
+        window.searchModule = {}
+        window.searchModule.JSONUrl = '/content.json'
+        window.searchModule.rootUrl = '/'
+    })(window)
+</script>
+<div class="cube-search-form">
+    <div class="cube-search-control">
+        <input type="text" placeholder="搜索" class="search-input">
+        <a class="close-button">
+            <i class="cube-icon cube-close" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="cube-search-result"></div>
+</div>
+
+
+<div class="cube-author cube-sidebar" id="cube-author">
+    
+    
+    <style>
+        @media(min-width: 768px) {
+            .cube-author img {
+                margin-top: 40px;
+                margin-bottom: 10px;
+            }
+        }
+        @media(max-width: 1120px) and (min-width: 768px) {
+            .cube-author img {
+                width: 128px;
+                height: 128px;
+            }
+        }
+        @media(min-width: 1120px) {
+            .cube-author img {
+                width: 160px;
+                height: 160px;
+            }
+        }
+    </style>
+    
+    <img src="/images/avatar.png" alt="avatar" class="cube-avatar">
+    
+    
+    <span>AONOSORA</span>
+    
+    
+    <a title="今生今世轮回尽, 来世愿为幻想乡">今生今世轮回尽, 来世愿为幻想乡</a>
+    
+    <div class="count">
+        <a class="count articles"><span>14</span>文章</a>
+        <a class="count tags"><span>13</span>标签</a>
+        <a class="count categories"><span>3</span>分类</a>
+    </div>
+</div>
+
+
+
+<div class="cube-music cube-sidebar" id="cube-music">
+    <div class="cube-player aplayer" id="cube-player"></div>
+</div>
+<script>
+    (function (window) {
+        window.musicModule = {}
+        window.musicModule.musicConfig = '{"narrow":false,"autoplay":false,"showlrc":3,"theme":"#b7daff","mutex":true,"mode":"circulation","preload":"auto","listmaxheight":"513px","music":[{"title":"Dear friends","author":"TRIPLANE","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/TRIPLANE - Dear friends.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Dear friends - TRIPLANE.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/TRIPLANE - Dear friends.jpg"},{"title":"Butter-Fly","author":"和田光司","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/和田光司 - Butter-Fly (ピアノヴァージョン).mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Butter-Fly (ピアノヴァージョン) - 和田光司.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/和田光司 - Butter-Fly (ピアノヴァージョン).jpg"},{"title":"宵闇花火","author":"葉月ゆら","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/葉月ゆら - 宵闇花火.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/宵闇花火 - 葉月ゆら.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/葉月ゆら - 宵闇花火.jpg"}]}'
+        window.musicModule.lrcConfig = {
+            open: '开启歌词',
+            close: '关闭歌词'
+        }
+    })(window)
+</script>
+
+
+
+<div class="cube-recent-posts cube-sidebar" id="cube-recent-posts">
+    <div class="title">
+        <a>近期文章</a>
+    </div>
+    <ul class="list">
+        
+        
+        <li>
+            <!-- TODO 如果文章要显示图片，那么在front-matter上添加preview属性(url or path) -->
+            
+            
+            <div class="preview">
+                <p class="index first">
+                    <span>1</span>
+                </p>
+                <div class="image" style="background-image: url(/images/previews/测试各种markdown的样式.png);"></div>
+                <div class="info">
+                    <p class="title">
+                        <a href="/2017/07/28/测试各种markdown的样式/" title="测试各种markdown的样式">测试各种markdown的样式</a>
+                    </p>
+                    <p class="date">
+                        2017-07-28
+                    </p>
+                </div>
+            </div>
+            
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>2</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/03/04/博客搬迁/" title="博客搬迁">博客搬迁</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>3</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/01/11/xampp-phpstorm的简单配置/" title="xampp + phpstorm的简单配置">xampp + phpstorm的简单配置</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>4</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/11/07/某crackme破解/" title="某crackme破解">某crackme破解</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>5</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/10/31/脱壳练习1/" title="记一次小软件脱壳">记一次小软件脱壳</a>
+                </p>
+            </div>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-categories cube-sidebar" id="cube-categories">
+    <div class="title">
+        <a href="/categories">分类</a>
+    </div>
+    <div class="cube-boxs">
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/Python/">#Python</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/前端/">#前端</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/逆向工程/">#逆向工程</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="cube-tagcloud cube-sidebar" id="cube-tagcloud">
+    <div class="title">
+        <a href="/tags">标签云</a>
+    </div>
+    <div class="cube-boxs">
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/杂谈/">#杂谈</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/python/">#python</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/javascript/">#javascript</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/AngularJS/">#AngularJS</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/php/">#php</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/网络相关/">#网络相关</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/云服务器/">#云服务器</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/逆向/">#逆向</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/网络安全/">#网络安全</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/Vue/">#Vue</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/Angular/">#Angular</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/React/">#React</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/博客搭建/">#博客搭建</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="cube-links cube-sidebar" id="cube-links">
+    <div class="title">
+        <a>个人链接</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/GitHub.png">
+            
+            <a href="https://github.com/ZEROKISEKI" target="_blank">GitHub</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/Coding.png">
+            
+            <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/SF.png">
+            
+            <a href="https://segmentfault.com/u/aonosora" target="_blank">SF社区</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/开发者头条.png">
+            
+            <a href="https://toutiao.io/u/148070" target="_blank">开发者头条</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-friend-links cube-sidebar" id="cube-friend-links">
+    <div class="title">
+        <a>友情链接</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/micblo.png">
+            <a href="https://blog.micblo.com/" target="_blank">罗大佬</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/DIYgod.jpg">
+            <a href="https://www.anotherhome.net/" target="_blank">DIYgod</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="/images/friend_links.jpg ">
+            <a href="https://aonosora.com/" target="_blank">咪西西の部落格</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+    </div>
+</div>
+<footer class="cube-footer">
+    
+© 2017 AONOSORA
+
+<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+</footer>
+<!-- inject:script -->
+<script src="/js/script.js"></script>
+<!-- endinject -->
+<div class="cube-loading out"></div>
+</body>
+</html>

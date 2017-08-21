@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="AONOSORA">
+    
+    <meta name="description" content="今生今世轮回尽, 来世愿为幻想乡">
+    
+    
+    
+    
+    
+    
+    <title>记一次小软件脱壳 | senrenbankaの部落格</title>
+    <!-- inject:style -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <!-- endinject -->
+    <style>
+        .cube-loading {
+            top: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('/images/lg/loading.gif') no-repeat center center;
+            background-color: rgba(0,0,0,.7);
+        }
+
+        .cube-loading.out {
+            display: none;
+        }
+
+        .cube-loading:before {
+            display: block;
+            content: '加载中';
+            position: relative;
+            width: 100%;
+            top: 50%;
+            right: -50%;
+            color: #fff;
+        }
+
+        @media(max-width: 768px) {
+            .cube-loading:before {
+                font-size: 1.2em;
+                transform: translate(-24px,20px);
+                -webkit-transform: translate(-24px,20px);
+                -o-transform: translate(-24px,20px);
+                -ms-transform: translate(-24px,20px);
+            }
+        }
+
+        @media(min-width: 768px) {
+            .cube-loading:before {
+
+            }
+        }
+    </style>
+    
+</head>
+<body>
+<div class="cube-body">
+    <nav id="cube-top-memu" class="cube-menu">
+    <ul class="cube-menu-collapse">
+        
+        <li>
+            <i class="cube-icon cube-icon-home" aria-hidden="true"></i>
+            <a href="/">首页</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-archive" aria-hidden="true"></i>
+            <a href="/archives">归档</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-tags" aria-hidden="true"></i>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-about" aria-hidden="true"></i>
+            <a href="/about-me">关于我</a>
+        </li>
+        
+    </ul>
+</nav>
+<nav class="cube-side-menu" id="cube-side-menu">
+    <ul class="cube-menu-list">
+        
+        <li>
+            <a class="lrc-control">开启歌词</a>
+        </li>
+        
+        <li>
+            <a class="scroll-to-top">回到顶部</a>
+        </li>
+    </ul>
+</nav>
+    <header class="cube-header" id="cube-header">
+    <img src=" http://cube-1252774894.cosgz.myqcloud.com/background.png " alt="头部背景图片">
+    
+    <div class="cube-type">
+        <span class="cube-typed-title">senrenbankaの部落格</span>
+        <span class="cube-typed-cursor">|</span>
+    </div>
+    
+</header>
+
+    <style>
+        nav.cube-menu:before {
+            content: '';
+            visibility: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 44px;
+        
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+        
+            z-index: -1;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-repeat: no-repeat;
+            background-position: center -356px;
+            background-size: cover;
+            background-color: transparent;
+        }
+
+        header.cube-background.cube-header-background {
+            visibility: hidden;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-position: center -400px;
+        }
+    </style>
+    <header class="cube-background cube-header-background">
+        
+        <div class="cube-type">
+            <span class="cube-typed-title">senrenbankaの部落格</span>
+            <span class="cube-typed-cursor">|</span>
+        </div>
+        
+    </header>
+    <div class="load-header-background"></div>
+    <script>
+        (function (window) {
+
+            window.headerModule = {}
+            window.headerModule.image = {
+                width: '2000',
+                height: '1414'
+            }
+
+        })(window)
+    </script>
+    
+    <div class="cube-content">
+        <div class="cube-left">
+            <div class="cube-article">
+    <h1 class="title">记一次小软件脱壳</h1>
+    
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2016-10-31
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+    <a href="/tags/逆向/">#逆向</a>
+    
+</div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <p>目标： 跑跑排行榜1.9.exe<br>界面： <img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-%E7%95%8C%E9%9D%A2.png" alt="跑跑排行榜-界面"></p>
+<p>首先用PEID查壳，得知是tELock v0.98的壳:<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-%E6%9F%A5%E5%A3%B3.png" alt="跑跑排行榜-查壳"></p>
+<p>首先，愉快地打开OD:<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-OD%E5%88%9D%E5%A7%8B%E7%95%8C%E9%9D%A2.png" alt="跑跑排行榜-OD初始界面"></p>
+<p>直接F9，到第一次异常发生的地方:<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-%E7%AC%AC%E4%B8%80%E6%AC%A1F9.png" alt="跑跑排行榜-第一次F9"><br><a id="more"></a><br>可以看到上面有个pushad，一开始是打算用esp定律的，无奈这方法不管用，程序直接跑飞(事实上还是可以用到esp的)，跑飞点在下面的这句</p>
+<pre><code>0042C001  F9 call 跑跑排行.0042C009
+</code></pre><p>此时可以选择单步进入，然后单步跟踪，但是过程很复杂，所以这里不采用单步跟踪的思路，用追踪异常的方法：在第一次F9之后，到了第一个异常点，这时候我们shift+f9，就是忽略异常执行，然后会停在下一个异常点，我们不断重复此步骤，最终到程序执行为止。不过事实上，这个程序在到下面这个地方后，再shift+f9就飞到了系统领空了，并且这个领空用alt+f9是出不来的，所以我认为这个地方是最后一个异常点(说来奇怪，我在这个异常点shift+f9居然还是在这个地方，再按一次才跑到系统领空)：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E5%BC%82%E5%B8%B8%E7%82%B91.png" alt="跑跑排行榜-最后一次异常点1"></p>
+<p>查看此时堆栈段情况：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E5%BC%82%E5%B8%B8%E7%82%B91-%E5%A0%86%E6%A0%88.png" alt="跑跑排行榜-最后一次异常1-堆栈"></p>
+<p>易知<code>0042CDF4</code>处理这个异常的函数，那么在这个地方下断点，然后shift+f9过掉它：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E5%BC%82%E5%B8%B8%E7%82%B91-%E7%BB%95%E8%BF%87.png" alt="跑跑排行榜-最后一次异常1-绕过"></p>
+<p>然后就是漫长的单步，最后到了本次脱壳的又一个关键点：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E5%BC%82%E5%B8%B8%E7%82%B91-%E5%85%B3%E9%94%AE%E8%B7%B3%E8%BD%AC.png" alt="跑跑排行榜-最后一次异常1-关键跳转"></p>
+<p>如图所示，这个<code>jmp</code>跳转很大，可能是OEP，第一次我试着跳了，结果发现是个死循环，出不去的，于是我判断这个跳转是不能跳的，那么尝试f4到下面：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E5%BC%82%E5%B8%B8%E7%82%B92.png" alt="跑跑排行榜-最后一次异常2"></p>
+<p>怎么有种似曾相识的感觉QAQ，这不是刚才的那个异常点么，再看下堆栈，SE处理程序是<code>0042D7FD</code>，哦，怪不得我刚才第一次在<code>0042D819</code>处shift+f9还是这里，这里应该是发生了两次异常，而且处理异常的函数是不同的，那么我们在<code>0042D7FD</code>下断点，shift+f9再次绕过这个异常，然后经过一系列的单步，到了OEP跳转点：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-OEP%E8%B7%B3%E8%BD%AC.png" alt="跑跑排行榜-OEP跳转"></p>
+<p>愉快的f8到了OEP，妥妥的VC++6.0程序：</p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-OEP.png" alt="跑跑排行版-OEP"></p>
+<p>然后就是脱壳了，这里用OD的脱壳方法是不行的，因为有很多指针是没有修复的，所以先上<code>LORD PE</code>转存，然后用<code>Import REC</code>修复：</p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-%E4%BF%AE%E5%A4%8D1.png" alt="跑跑排行榜-修复1"></p>
+<p><code>Import REC</code>先用tElock v0.98 的3级追踪修复一堆指针，剩余的几个反汇编看了下，没什么用，就是垃圾指针，所以剪切掉：</p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-%E4%BF%AE%E5%A4%8D2.png" alt="跑跑排行榜-修复2"></p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-%E4%BF%AE%E5%A4%8D3.png" alt="跑跑排行榜-修复3"></p>
+<p>dump掉，再用PEID查壳：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-%E8%84%B1%E5%A3%B3%E5%90%8E-%E6%9F%A5%E5%A3%B3.png" alt="跑跑排行榜-脱壳后-查壳"></p>
+<p>完成。</p>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2016/11/07/某crackme破解/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                某crackme破解
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2016/06/07/javascript函数化构造器/">
+                javascript函数化构造器
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
+        </div>
+        <div class="cube-right">
+            
+
+<div class="cube-search cube-sidebar" id="cube-search">
+    <div class="search-container">
+        <input type="text" placeholder="搜索" class="cube-search-input" id="cube-search-input">
+        <i class="cube-icon cube-icon-search cube-search-submit" aria-hidden="true"></i>
+    </div>
+    <!-- TODO 通过给window赋一个全局变量，通过脚本赋值 -->
+</div>
+<script>
+    (function (window) {
+        'use strict';
+        window.searchModule = {}
+        window.searchModule.JSONUrl = '/content.json'
+        window.searchModule.rootUrl = '/'
+    })(window)
+</script>
+<div class="cube-search-form">
+    <div class="cube-search-control">
+        <input type="text" placeholder="搜索" class="search-input">
+        <a class="close-button">
+            <i class="cube-icon cube-close" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="cube-search-result"></div>
+</div>
+
+
+<div class="cube-author cube-sidebar" id="cube-author">
+    
+    
+    <style>
+        @media(min-width: 768px) {
+            .cube-author img {
+                margin-top: 40px;
+                margin-bottom: 10px;
+            }
+        }
+        @media(max-width: 1120px) and (min-width: 768px) {
+            .cube-author img {
+                width: 128px;
+                height: 128px;
+            }
+        }
+        @media(min-width: 1120px) {
+            .cube-author img {
+                width: 160px;
+                height: 160px;
+            }
+        }
+    </style>
+    
+    <img src="/images/avatar.png" alt="avatar" class="cube-avatar">
+    
+    
+    <span>AONOSORA</span>
+    
+    
+    <a title="今生今世轮回尽, 来世愿为幻想乡">今生今世轮回尽, 来世愿为幻想乡</a>
+    
+    <div class="count">
+        <a class="count articles"><span>14</span>文章</a>
+        <a class="count tags"><span>13</span>标签</a>
+        <a class="count categories"><span>3</span>分类</a>
+    </div>
+</div>
+
+
+
+<div class="cube-music cube-sidebar" id="cube-music">
+    <div class="cube-player aplayer" id="cube-player"></div>
+</div>
+<script>
+    (function (window) {
+        window.musicModule = {}
+        window.musicModule.musicConfig = '{"narrow":false,"autoplay":false,"showlrc":3,"theme":"#b7daff","mutex":true,"mode":"circulation","preload":"auto","listmaxheight":"513px","music":[{"title":"Dear friends","author":"TRIPLANE","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/TRIPLANE - Dear friends.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Dear friends - TRIPLANE.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/TRIPLANE - Dear friends.jpg"},{"title":"Butter-Fly","author":"和田光司","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/和田光司 - Butter-Fly (ピアノヴァージョン).mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Butter-Fly (ピアノヴァージョン) - 和田光司.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/和田光司 - Butter-Fly (ピアノヴァージョン).jpg"},{"title":"宵闇花火","author":"葉月ゆら","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/葉月ゆら - 宵闇花火.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/宵闇花火 - 葉月ゆら.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/葉月ゆら - 宵闇花火.jpg"}]}'
+        window.musicModule.lrcConfig = {
+            open: '开启歌词',
+            close: '关闭歌词'
+        }
+    })(window)
+</script>
+
+
+
+<div class="cube-recent-posts cube-sidebar" id="cube-recent-posts">
+    <div class="title">
+        <a>近期文章</a>
+    </div>
+    <ul class="list">
+        
+        
+        <li>
+            <!-- TODO 如果文章要显示图片，那么在front-matter上添加preview属性(url or path) -->
+            
+            
+            <div class="preview">
+                <p class="index first">
+                    <span>1</span>
+                </p>
+                <div class="image" style="background-image: url(/images/previews/测试各种markdown的样式.png);"></div>
+                <div class="info">
+                    <p class="title">
+                        <a href="/2017/07/28/测试各种markdown的样式/" title="测试各种markdown的样式">测试各种markdown的样式</a>
+                    </p>
+                    <p class="date">
+                        2017-07-28
+                    </p>
+                </div>
+            </div>
+            
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>2</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/03/04/博客搬迁/" title="博客搬迁">博客搬迁</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>3</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/01/11/xampp-phpstorm的简单配置/" title="xampp + phpstorm的简单配置">xampp + phpstorm的简单配置</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>4</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/11/07/某crackme破解/" title="某crackme破解">某crackme破解</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>5</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/10/31/脱壳练习1/" title="记一次小软件脱壳">记一次小软件脱壳</a>
+                </p>
+            </div>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-categories cube-sidebar" id="cube-categories">
+    <div class="title">
+        <a href="/categories">分类</a>
+    </div>
+    <div class="cube-boxs">
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/Python/">#Python</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/前端/">#前端</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/逆向工程/">#逆向工程</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="cube-tagcloud cube-sidebar" id="cube-tagcloud">
+    <div class="title">
+        <a href="/tags">标签云</a>
+    </div>
+    <div class="cube-boxs">
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/杂谈/">#杂谈</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/python/">#python</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/javascript/">#javascript</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/AngularJS/">#AngularJS</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/php/">#php</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/网络相关/">#网络相关</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/云服务器/">#云服务器</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/逆向/">#逆向</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/网络安全/">#网络安全</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/Vue/">#Vue</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/Angular/">#Angular</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/React/">#React</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/博客搭建/">#博客搭建</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="cube-links cube-sidebar" id="cube-links">
+    <div class="title">
+        <a>个人链接</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/GitHub.png">
+            
+            <a href="https://github.com/ZEROKISEKI" target="_blank">GitHub</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/Coding.png">
+            
+            <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/SF.png">
+            
+            <a href="https://segmentfault.com/u/aonosora" target="_blank">SF社区</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/开发者头条.png">
+            
+            <a href="https://toutiao.io/u/148070" target="_blank">开发者头条</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-friend-links cube-sidebar" id="cube-friend-links">
+    <div class="title">
+        <a>友情链接</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/micblo.png">
+            <a href="https://blog.micblo.com/" target="_blank">罗大佬</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/DIYgod.jpg">
+            <a href="https://www.anotherhome.net/" target="_blank">DIYgod</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="/images/friend_links.jpg ">
+            <a href="https://aonosora.com/" target="_blank">咪西西の部落格</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+    </div>
+</div>
+<footer class="cube-footer">
+    
+© 2017 AONOSORA
+
+<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+</footer>
+<!-- inject:script -->
+<script src="/js/script.js"></script>
+<!-- endinject -->
+<div class="cube-loading out"></div>
+</body>
+</html>

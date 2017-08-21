@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="AONOSORA">
+    
+    <meta name="description" content="今生今世轮回尽, 来世愿为幻想乡">
+    
+    
+    
+    
+    
+    
+    <title>《AngularJS深度剖析与最佳实践》学习笔记（一） | senrenbankaの部落格</title>
+    <!-- inject:style -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <!-- endinject -->
+    <style>
+        .cube-loading {
+            top: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('/images/lg/loading.gif') no-repeat center center;
+            background-color: rgba(0,0,0,.7);
+        }
+
+        .cube-loading.out {
+            display: none;
+        }
+
+        .cube-loading:before {
+            display: block;
+            content: '加载中';
+            position: relative;
+            width: 100%;
+            top: 50%;
+            right: -50%;
+            color: #fff;
+        }
+
+        @media(max-width: 768px) {
+            .cube-loading:before {
+                font-size: 1.2em;
+                transform: translate(-24px,20px);
+                -webkit-transform: translate(-24px,20px);
+                -o-transform: translate(-24px,20px);
+                -ms-transform: translate(-24px,20px);
+            }
+        }
+
+        @media(min-width: 768px) {
+            .cube-loading:before {
+
+            }
+        }
+    </style>
+    
+</head>
+<body>
+<div class="cube-body">
+    <nav id="cube-top-memu" class="cube-menu">
+    <ul class="cube-menu-collapse">
+        
+        <li>
+            <i class="cube-icon cube-icon-home" aria-hidden="true"></i>
+            <a href="/">首页</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-archive" aria-hidden="true"></i>
+            <a href="/archives">归档</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-tags" aria-hidden="true"></i>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-about" aria-hidden="true"></i>
+            <a href="/about-me">关于我</a>
+        </li>
+        
+    </ul>
+</nav>
+<nav class="cube-side-menu" id="cube-side-menu">
+    <ul class="cube-menu-list">
+        
+        <li>
+            <a class="lrc-control">开启歌词</a>
+        </li>
+        
+        <li>
+            <a class="scroll-to-top">回到顶部</a>
+        </li>
+    </ul>
+</nav>
+    <header class="cube-header" id="cube-header">
+    <img src=" http://cube-1252774894.cosgz.myqcloud.com/background.png " alt="头部背景图片">
+    
+    <div class="cube-type">
+        <span class="cube-typed-title">senrenbankaの部落格</span>
+        <span class="cube-typed-cursor">|</span>
+    </div>
+    
+</header>
+
+    <style>
+        nav.cube-menu:before {
+            content: '';
+            visibility: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 44px;
+        
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+        
+            z-index: -1;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-repeat: no-repeat;
+            background-position: center -356px;
+            background-size: cover;
+            background-color: transparent;
+        }
+
+        header.cube-background.cube-header-background {
+            visibility: hidden;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-position: center -400px;
+        }
+    </style>
+    <header class="cube-background cube-header-background">
+        
+        <div class="cube-type">
+            <span class="cube-typed-title">senrenbankaの部落格</span>
+            <span class="cube-typed-cursor">|</span>
+        </div>
+        
+    </header>
+    <div class="load-header-background"></div>
+    <script>
+        (function (window) {
+
+            window.headerModule = {}
+            window.headerModule.image = {
+                width: '2000',
+                height: '1414'
+            }
+
+        })(window)
+    </script>
+    
+    <div class="cube-content">
+        <div class="cube-left">
+            <div class="cube-article">
+    <h1 class="title">《AngularJS深度剖析与最佳实践》学习笔记（一）</h1>
+    
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2016-05-12
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+    <a href="/tags/AngularJS/">#AngularJS</a>
+    
+</div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <p>   看了三章之后才想到我应该写一些笔记来加深印象和理解,所以写的顺序会有点乱，到时再进行重新排版</p>
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令:"></a>指令:</h2><p>   Angular2.0将指令分为<strong>组件型指令</strong>和<strong>装饰器型指令</strong>,虽然是2.0的标准,但是这个分法同样适用于Angular1.0:</p>
+<h3 id="组件型指令"><a href="#组件型指令" class="headerlink" title="组件型指令:"></a>组件型指令:</h3><p>   组件型指令的一般格式如下:</p>
+<pre><code>angular.module(&apos;myApp&apos;).directive(&apos;conponent&apos;,function(){
+      return {
+        restrict: &quot;EA&quot;,
+        scope: {
+            count:1
+        },
+        templateUrl: &apos;partials/conponent.html&apos;,
+        controller: function($scope){
+            //相关业务逻辑操作
+        }
+        ....
+    }
+});
+</code></pre><p>   组件型指令的特点可以概括为: <strong>高内聚低耦合</strong><br>   这种指令通常作为页面或者模板的一个组件,有自己的独立作用域,形成自己的业务逻辑,与外部模板页面的耦合性低,即使去掉这个指令,也不会对全局有影响，这样带来的好处是:代码的可维护性和复用性;<br><a id="more"></a><br>   我们搭建的组件可以用在其他的页面上,例如,我们做了个登录框的组件:</p>
+<pre><code>&lt;login-form username=&apos;form.username&apos; email=&quot;form.email&apos; password=&apos;form.password&apos;&gt;&lt;/login-form&gt;
+</code></pre><p>   自定义指令:</p>
+<pre><code>angular.module(&apos;myApp&apos;).directive(&apos;loginForm&apos;,function(){
+    return {
+        restrict: &apos;EA&apos;,
+        scope: {
+            username: &apos;=&apos;,
+            email: &apos;=&apos;,
+            password: &apos;=&apos;
+        },
+        templateUrl: &apos;partials/login.html&apos;,
+        controller: function($scope,$http) {
+            //业务逻辑处理
+            $http({
+                method:&quot;POST&quot;
+                data: &apos;&apos;
+            }).success(function(data) {
+                //...
+            });
+        },
+    }
+});
+</code></pre><p>   这样,我们自定义的登录组件骨架基本完成,只要想在页面进行引用,就在模板页面嵌入对应的元素即可。</p>
+<p>   组件型指令是一个小型的,内聚的,自封装的整体,其主要的目的应是内容信息的展示,应该尽量避免使用link(初学者写自定义指令一般都会用到这个,并且在link阶段加入典型的jQuery代码,再用scope.$apply()通知ViewModel进行脏检查。。。不要问我为什么知道),<br>   将业务逻辑写在controller中,当然,controller不要太脏,应该将表现层逻辑的代码用服务封装y,与业务层逻辑代码分离,保持controller的干净;</p>
+<h4 id="restrict"><a href="#restrict" class="headerlink" title="restrict"></a>restrict</h4><p>   restrict中我们设为’EA’,retrict有四种情况:E(元素),A(属性),M(注释),C(类),通常我们在实战中用到比较多的是<code>E</code>和<code>A</code>,<br>   如果我们的定位为组件型指令而不是装饰器型指令,我们可以只用<code>E</code>,用<code>A</code>是为了与IE8兼容,因为IE8对于新元素必须要通过document.createElement去实现。。。,当然,不想兼容IE8就略过这点。。。</p>
+<h4 id="scope"><a href="#scope" class="headerlink" title="scope"></a>scope</h4><p>   scope在指令中有三种情况:<br>   scope = undefined || false:  这种情况不需要创建作用域,直接使用父作用域的数据,如果节点中有创建了新作用域或独立作用域的指令,可以引用对应的作用域;<br>   scope = true:  这种情况则是表示需要一个新作用域,可以共享节点的新作用域,如果没有,则自己创建一个新作用域;<br>   scope = 哈希对象:   这种则是创建独立作用域,只通过某些固定的接口与外部作用域进行交互,实现了与外部作用域的隔离,这种情况我们即可以从父作用域获取我们想要的属性,又能避免引用到父作用域的相关属性;</p>
+<p>   当scope为哈希对象时,我们通常这样写:</p>
+<pre><code>scope: {
+  count: &apos;@&apos;,
+  count1: &apos;=&apos;,
+  count2: &apos;&amp;&apos;
+}
+</code></pre><p>   <code>@</code>表示的是引用字符串,’=’表示的是引用父作用域的变量,’&amp;’表示的是引用父作用域的方法;</p>
+<h3 id="装饰器型指令"><a href="#装饰器型指令" class="headerlink" title="装饰器型指令:"></a>装饰器型指令:</h3><p>   装饰器型指令的特点是:  给对应节点增添dom行为,增强view与model的同步;<br>   不像组件型指令是作为一个整体,装饰器型指令的定位是作为功能性的连接器，增强相应的表现层和业务层逻辑,一般的定义方式如下:</p>
+<pre><code>angular.module(&apos;myApp&apos;).directive(&apos;decorator&apos;,function() {
+    return {
+        restrict: &apos;EA&apos;,
+        link: function(scope,elm,attrs) {
+            //.....
+        }
+     };
+});
+</code></pre><p>   当然,上面的定义是最基本的,后面还要讲到一些关于指令的重要的东西,这里就先这样用。<br>   装饰器型指令中,由于其定位关系,不像组件型指令,它并不需要创建新作用域或是独立作用域(当然如果你想创建也可以),那么,如果我们没有创建作用域,那我们是如何像独立作用域那样拿到赋予的值呢?</p>
+<p>   回到我们上面的代码,我们可以看到link参数有个attrs,嗯,这个就是我们获取数据的关键,看下面的代码:</p>
+<pre><code>&lt;login-form username=&apos;feitou&apos; email=&apos;form.email&apos; password=&apos;form.password&apos; submit=&apos;submit(time)&apos;&gt;&lt;/login-form&gt;
+</code></pre><p>   实际上不会写这样的指令,在这里只是作为说明使用———username对应的是固定字符串<code>feitou</code>,我们可以在link阶段直接用<code>attrs.username</code>获取这个字符串,父作用域的值则通过<code>scope.$eval(attrs.email)</code>获取,<code>scope.$eval()</code>负责计算表达式的值,而父作用域的方法呢?由于方法也是父作用域的一部分,所以我们依旧用<code>scope.$eval()</code>,但是要这样用(以上面为例):<code>scope.$eval(attrs.submit&#39;,{ time:3 })</code>,第二个参数就是传入方法的参数,用对象来配置,并且名字要对应相同(与view上的方法参数名对应相同),这样,我们讲解了没有作用域如何去获取对应的数据了;</p>
+<p>   angular内置的大多数指令如ng-hide,ng-show这样都是装饰器型的指令,就是增强html的功能,将view进行进一步的分离,在实战中,我们避免不了要写自定义指令,这个时候,我们要考虑的,是我们这个指令的定位是什么,根据我们的定位去选择对应的指令方式,代码结构才能不断优化,指令的目的之一,就是为了优化我们的代码结构。</p>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2016/05/16/《AngularJS深度剖析与最佳实践》学习笔记（二）/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                《AngularJS深度剖析与最佳实践》学习笔记（二）
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2016/04/08/新手玩云服务器/">
+                新手玩云服务器
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
+        </div>
+        <div class="cube-right">
+            
+
+<div class="cube-search cube-sidebar" id="cube-search">
+    <div class="search-container">
+        <input type="text" placeholder="搜索" class="cube-search-input" id="cube-search-input">
+        <i class="cube-icon cube-icon-search cube-search-submit" aria-hidden="true"></i>
+    </div>
+    <!-- TODO 通过给window赋一个全局变量，通过脚本赋值 -->
+</div>
+<script>
+    (function (window) {
+        'use strict';
+        window.searchModule = {}
+        window.searchModule.JSONUrl = '/content.json'
+        window.searchModule.rootUrl = '/'
+    })(window)
+</script>
+<div class="cube-search-form">
+    <div class="cube-search-control">
+        <input type="text" placeholder="搜索" class="search-input">
+        <a class="close-button">
+            <i class="cube-icon cube-close" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="cube-search-result"></div>
+</div>
+
+
+<div class="cube-author cube-sidebar" id="cube-author">
+    
+    
+    <style>
+        @media(min-width: 768px) {
+            .cube-author img {
+                margin-top: 40px;
+                margin-bottom: 10px;
+            }
+        }
+        @media(max-width: 1120px) and (min-width: 768px) {
+            .cube-author img {
+                width: 128px;
+                height: 128px;
+            }
+        }
+        @media(min-width: 1120px) {
+            .cube-author img {
+                width: 160px;
+                height: 160px;
+            }
+        }
+    </style>
+    
+    <img src="/images/avatar.png" alt="avatar" class="cube-avatar">
+    
+    
+    <span>AONOSORA</span>
+    
+    
+    <a title="今生今世轮回尽, 来世愿为幻想乡">今生今世轮回尽, 来世愿为幻想乡</a>
+    
+    <div class="count">
+        <a class="count articles"><span>14</span>文章</a>
+        <a class="count tags"><span>13</span>标签</a>
+        <a class="count categories"><span>3</span>分类</a>
+    </div>
+</div>
+
+
+
+<div class="cube-music cube-sidebar" id="cube-music">
+    <div class="cube-player aplayer" id="cube-player"></div>
+</div>
+<script>
+    (function (window) {
+        window.musicModule = {}
+        window.musicModule.musicConfig = '{"narrow":false,"autoplay":false,"showlrc":3,"theme":"#b7daff","mutex":true,"mode":"circulation","preload":"auto","listmaxheight":"513px","music":[{"title":"Dear friends","author":"TRIPLANE","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/TRIPLANE - Dear friends.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Dear friends - TRIPLANE.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/TRIPLANE - Dear friends.jpg"},{"title":"Butter-Fly","author":"和田光司","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/和田光司 - Butter-Fly (ピアノヴァージョン).mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Butter-Fly (ピアノヴァージョン) - 和田光司.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/和田光司 - Butter-Fly (ピアノヴァージョン).jpg"},{"title":"宵闇花火","author":"葉月ゆら","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/葉月ゆら - 宵闇花火.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/宵闇花火 - 葉月ゆら.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/葉月ゆら - 宵闇花火.jpg"}]}'
+        window.musicModule.lrcConfig = {
+            open: '开启歌词',
+            close: '关闭歌词'
+        }
+    })(window)
+</script>
+
+
+
+<div class="cube-recent-posts cube-sidebar" id="cube-recent-posts">
+    <div class="title">
+        <a>近期文章</a>
+    </div>
+    <ul class="list">
+        
+        
+        <li>
+            <!-- TODO 如果文章要显示图片，那么在front-matter上添加preview属性(url or path) -->
+            
+            
+            <div class="preview">
+                <p class="index first">
+                    <span>1</span>
+                </p>
+                <div class="image" style="background-image: url(/images/previews/测试各种markdown的样式.png);"></div>
+                <div class="info">
+                    <p class="title">
+                        <a href="/2017/07/28/测试各种markdown的样式/" title="测试各种markdown的样式">测试各种markdown的样式</a>
+                    </p>
+                    <p class="date">
+                        2017-07-28
+                    </p>
+                </div>
+            </div>
+            
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>2</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/03/04/博客搬迁/" title="博客搬迁">博客搬迁</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>3</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/01/11/xampp-phpstorm的简单配置/" title="xampp + phpstorm的简单配置">xampp + phpstorm的简单配置</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>4</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/11/07/某crackme破解/" title="某crackme破解">某crackme破解</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>5</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/10/31/脱壳练习1/" title="记一次小软件脱壳">记一次小软件脱壳</a>
+                </p>
+            </div>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-categories cube-sidebar" id="cube-categories">
+    <div class="title">
+        <a href="/categories">分类</a>
+    </div>
+    <div class="cube-boxs">
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/Python/">#Python</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/categories/前端/">#前端</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/categories/逆向工程/">#逆向工程</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="cube-tagcloud cube-sidebar" id="cube-tagcloud">
+    <div class="title">
+        <a href="/tags">标签云</a>
+    </div>
+    <div class="cube-boxs">
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/杂谈/">#杂谈</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/python/">#python</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/javascript/">#javascript</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/AngularJS/">#AngularJS</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/php/">#php</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/网络相关/">#网络相关</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/云服务器/">#云服务器</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/逆向/">#逆向</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/网络安全/">#网络安全</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/Vue/">#Vue</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/Angular/">#Angular</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/React/">#React</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/博客搭建/">#博客搭建</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="cube-links cube-sidebar" id="cube-links">
+    <div class="title">
+        <a>个人链接</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/GitHub.png">
+            
+            <a href="https://github.com/ZEROKISEKI" target="_blank">GitHub</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/Coding.png">
+            
+            <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/SF.png">
+            
+            <a href="https://segmentfault.com/u/aonosora" target="_blank">SF社区</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/开发者头条.png">
+            
+            <a href="https://toutiao.io/u/148070" target="_blank">开发者头条</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-friend-links cube-sidebar" id="cube-friend-links">
+    <div class="title">
+        <a>友情链接</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/micblo.png">
+            <a href="https://blog.micblo.com/" target="_blank">罗大佬</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/DIYgod.jpg">
+            <a href="https://www.anotherhome.net/" target="_blank">DIYgod</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="/images/friend_links.jpg ">
+            <a href="https://aonosora.com/" target="_blank">咪西西の部落格</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+    </div>
+</div>
+<footer class="cube-footer">
+    
+© 2017 AONOSORA
+
+<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+</footer>
+<!-- inject:script -->
+<script src="/js/script.js"></script>
+<!-- endinject -->
+<div class="cube-loading out"></div>
+</body>
+</html>

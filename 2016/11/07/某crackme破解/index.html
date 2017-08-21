@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="AONOSORA">
+    
+    <meta name="description" content="今生今世轮回尽, 来世愿为幻想乡">
+    
+    
+    
+    
+    
+    
+    <title>某crackme破解 | senrenbankaの部落格</title>
+    <!-- inject:style -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <!-- endinject -->
+    <style>
+        .cube-loading {
+            top: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('/images/lg/loading.gif') no-repeat center center;
+            background-color: rgba(0,0,0,.7);
+        }
+
+        .cube-loading.out {
+            display: none;
+        }
+
+        .cube-loading:before {
+            display: block;
+            content: '加载中';
+            position: relative;
+            width: 100%;
+            top: 50%;
+            right: -50%;
+            color: #fff;
+        }
+
+        @media(max-width: 768px) {
+            .cube-loading:before {
+                font-size: 1.2em;
+                transform: translate(-24px,20px);
+                -webkit-transform: translate(-24px,20px);
+                -o-transform: translate(-24px,20px);
+                -ms-transform: translate(-24px,20px);
+            }
+        }
+
+        @media(min-width: 768px) {
+            .cube-loading:before {
+
+            }
+        }
+    </style>
+    
+</head>
+<body>
+<div class="cube-body">
+    <nav id="cube-top-memu" class="cube-menu">
+    <ul class="cube-menu-collapse">
+        
+        <li>
+            <i class="cube-icon cube-icon-home" aria-hidden="true"></i>
+            <a href="/">首页</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-archive" aria-hidden="true"></i>
+            <a href="/archives">归档</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-tags" aria-hidden="true"></i>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-about" aria-hidden="true"></i>
+            <a href="/about-me">关于我</a>
+        </li>
+        
+    </ul>
+</nav>
+<nav class="cube-side-menu" id="cube-side-menu">
+    <ul class="cube-menu-list">
+        
+        <li>
+            <a class="lrc-control">开启歌词</a>
+        </li>
+        
+        <li>
+            <a class="scroll-to-top">回到顶部</a>
+        </li>
+    </ul>
+</nav>
+    <header class="cube-header" id="cube-header">
+    <img src=" http://cube-1252774894.cosgz.myqcloud.com/background.png " alt="头部背景图片">
+    
+    <div class="cube-type">
+        <span class="cube-typed-title">senrenbankaの部落格</span>
+        <span class="cube-typed-cursor">|</span>
+    </div>
+    
+</header>
+
+    <style>
+        nav.cube-menu:before {
+            content: '';
+            visibility: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 44px;
+        
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+        
+            z-index: -1;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-repeat: no-repeat;
+            background-position: center -356px;
+            background-size: cover;
+            background-color: transparent;
+        }
+
+        header.cube-background.cube-header-background {
+            visibility: hidden;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-position: center -400px;
+        }
+    </style>
+    <header class="cube-background cube-header-background">
+        
+        <div class="cube-type">
+            <span class="cube-typed-title">senrenbankaの部落格</span>
+            <span class="cube-typed-cursor">|</span>
+        </div>
+        
+    </header>
+    <div class="load-header-background"></div>
+    <script>
+        (function (window) {
+
+            window.headerModule = {}
+            window.headerModule.image = {
+                width: '2000',
+                height: '1414'
+            }
+
+        })(window)
+    </script>
+    
+    <div class="cube-content">
+        <div class="cube-left">
+            <div class="cube-article">
+    <h1 class="title">某crackme破解</h1>
+    
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2016-11-07
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+    <a href="/tags/逆向/">#逆向</a>
+    
+    <a href="/tags/网络安全/">#网络安全</a>
+    
+</div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <h2 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00: 前言"></a>0x00: 前言</h2><p>前两天看雪CTF大赛开始，然而对于看雪的CM题目完全是一脸懵逼，于是决定进行CM的训练，废话不多说，目标是这家伙：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/crackme1.png" alt="crackme1"></p>
+<p>居然还用了diablo的头像hhh，运行界面：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/crackme2.png" alt="crackme2"></p>
+<h2 id="0x01-脱壳"><a href="#0x01-脱壳" class="headerlink" title="0x01: 脱壳"></a>0x01: 脱壳</h2><p>简单说明下，上下两个框都可以输入，如果输入有误，第二个框的值会变成”register unvalid”之类的东西，首先用<strong><em>PEID</em></strong>查下壳：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/crackme-%E6%9F%A5%E5%A3%B3.png" alt="查壳"><br>yoda’s crypter的壳，那么就来脱掉它吧~</p>
+<p>OD载入程序进行异常计数，然后断在最后一次异常中，此时查看堆栈得知SEH的处理<code>Handle</code>在<code>0040C70C</code>中，于是跳到异常处理函数中，下面是异常处理函数：</p>
+<pre><code>0040C70C    55              push ebp
+0040C70D    8BEC            mov ebp,esp
+0040C70F    57              push edi
+0040C710    8B45 10         mov eax,dword ptr ss:[ebp+0x10]
+0040C713    8BB8 C4000000   mov edi,dword ptr ds:[eax+0xC4]
+0040C719    FF37            push dword ptr ds:[edi]
+0040C71B    33FF            xor edi,edi
+0040C71D    64:8F07         pop dword ptr fs:[edi]
+0040C720    8380 C4000000 0&gt;add dword ptr ds:[eax+0xC4],0x8
+0040C727    8BB8 A4000000   mov edi,dword ptr ds:[eax+0xA4]
+0040C72D    C1C7 07         rol edi,0x7
+0040C730    89B8 B8000000   mov dword ptr ds:[eax+0xB8],edi
+0040C736    B8 00000000     mov eax,0x0
+0040C73B    5F              pop edi    这里edi的值为0x40A950,为跳转到OEP的关键
+0040C73C    C9              leave
+0040C73D    C3              retn
+</code></pre><p>跳到edi指向的地址，然后单步跟踪，很快就找到了OEP了，OEP代码如下：</p>
+<pre><code>00401000    6A 00           push 0x0
+00401002    E8 71020000     call d2k2_crk.00401278                   ; jmp 到 kernel32.GetModuleHandleA
+00401007    A3 40314000     mov dword ptr ds:[0x403140],eax
+0040100C    6A 00           push 0x0
+0040100E    68 28104000     push d2k2_crk.00401028
+00401013    6A 00           push 0x0
+00401015    6A 01           push 0x1
+00401017    FF35 40314000   push dword ptr ds:[0x403140]
+0040101D    E8 62020000     call d2k2_crk.00401284                   ; jmp 到 user32.DialogBoxParamA
+00401022    50              push eax
+00401023    E8 4A020000     call d2k2_crk.00401272                   ; jmp 到 kernel32.ExitProcess
+00401028    55              push ebp
+00401029    8BEC            mov ebp,esp
+0040102B    817D 0C 1101000&gt;cmp dword ptr ss:[ebp+0xC],0x111
+</code></pre><p>明显的TASM/MASM32程序，于是脱壳，再次查壳：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/crackme-%E6%9F%A5%E5%A3%B3%28%E5%B7%B2%E8%84%B1%E5%A3%B3%29.png" alt="crackme-查壳(已脱壳)"><br><a id="more"></a></p>
+<h2 id="0x02-破解"><a href="#0x02-破解" class="headerlink" title="0x02: 破解"></a>0x02: 破解</h2><p>一上来先用很<strong>low</strong>的中文搜索法，如果不行就打算下<code>DLGITEMTEXT</code>的断点试试，但是没想到中文搜索居然成功了:<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/crackme-%E4%B8%AD%E6%96%87%E6%90%9C%E7%B4%A2.png" alt="crackme-中文搜索"></p>
+<p>位置都在附近，随便点进一个看看(下面中文的注释是我写的,英文的是原本就有的)：</p>
+<pre><code>004010C2    E8 C9010000     call &lt;jmp.&amp;user32.GetDlgItemTextA&gt;       ; 这里应该是要求某种格式
+004010C7    83F8 10         cmp eax,0x10                             ; 这里的eax是第二个框的值，要求第二个框放16个数
+004010CA    75 5D           jnz short d2k2_crk.00401129
+004010CC    6A 28           push 0x28
+004010CE    68 A0304000     push d2k2_crk.004030A0
+004010D3    6A 67           push 0x67
+004010D5    FF75 08         push dword ptr ss:[ebp+0x8]
+004010D8    E8 B3010000     call &lt;jmp.&amp;user32.GetDlgItemTextA&gt;
+004010DD    85C0            test eax,eax                             ; eax是我们的输入值的个数
+004010DF    74 20           je short d2k2_crk.00401101               ; 这个是没有输入的跳转
+004010E1    83F8 08         cmp eax,0x8
+004010E4    7F 2F           jg short d2k2_crk.00401115               ; 输入值不能大于8位
+004010E6    83F8 01         cmp eax,0x1                              ; 这里这个判定有些问题
+004010E9    7C 02           jl short d2k2_crk.004010ED
+004010EB    EB 50           jmp short d2k2_crk.0040113D
+004010ED    68 24304000     push d2k2_crk.00403024                   ; Name must be at least 2 chars long!
+004010F2    6A 68           push 0x68
+004010F4    FF75 08         push dword ptr ss:[ebp+0x8]
+004010F7    E8 A0010000     call &lt;jmp.&amp;user32.SetDlgItemTextA&gt;
+004010FC    E9 41010000     jmp d2k2_crk.00401242
+00401101    68 04304000     push d2k2_crk.00403004                   ; Enter a name!
+00401106    6A 68           push 0x68
+00401108    FF75 08         push dword ptr ss:[ebp+0x8]
+0040110B    E8 8C010000     call &lt;jmp.&amp;user32.SetDlgItemTextA&gt;
+00401110    E9 2D010000     jmp d2k2_crk.00401242
+00401115    68 12304000     push d2k2_crk.00403012                   ; Name is too long!
+0040111A    6A 68           push 0x68
+0040111C    FF75 08         push dword ptr ss:[ebp+0x8]
+0040111F    E8 78010000     call &lt;jmp.&amp;user32.SetDlgItemTextA&gt;
+00401124    E9 19010000     jmp d2k2_crk.00401242
+00401129    68 48304000     push d2k2_crk.00403048                   ; Your Registration Code is invalid!
+0040112E    6A 68           push 0x68
+00401130    FF75 08         push dword ptr ss:[ebp+0x8]
+00401133    E8 64010000     call &lt;jmp.&amp;user32.SetDlgItemTextA&gt;
+00401138    E9 05010000     jmp d2k2_crk.00401242
+</code></pre><p>“Thank you for your support”在这段程序的下面，挺靠后的，然后中间有一大段程序，上面的代码中有一个跳转是到那一大段程序中的<br><code>jmp short d2k2_crk.0040113D</code>,我将下面的程序也给出来：</p>
+<pre><code>0040113D    33DB            xor ebx,ebx                              ; 将寄存器都变为0
+0040113F    33C9            xor ecx,ecx
+00401141    33D2            xor edx,edx
+00401143    33FF            xor edi,edi
+00401145    33F6            xor esi,esi
+00401147    8A99 A0304000   mov bl,byte ptr ds:[ecx+0x4030A0]
+0040114D    80FB 41         cmp bl,0x41
+00401150    7C 07           jl short d2k2_crk.00401159
+00401152    80FB 5A         cmp bl,0x5A
+00401155    7F 0E           jg short d2k2_crk.00401165
+00401157    EB 1F           jmp short d2k2_crk.00401178
+00401159    80C3 20         add bl,0x20                              ; 值在0-20的会被赋予F
+0040115C    80FB 41         cmp bl,0x41
+0040115F    7D 02           jge short d2k2_crk.00401163
+00401161    B3 46           mov bl,0x46                              ; 固定值F
+00401163  ^ EB ED           jmp short d2k2_crk.00401152
+00401165    80EB 20         sub bl,0x20
+00401168    80FB 5A         cmp bl,0x5A
+0040116B    7E 02           jle short d2k2_crk.0040116F
+0040116D    B3 47           mov bl,0x47
+0040116F    80FB 41         cmp bl,0x41
+00401172    7D 02           jge short d2k2_crk.00401176
+00401174    B3 53           mov bl,0x53
+00401176  ^ EB DF           jmp short d2k2_crk.00401157
+00401178    889A 87304000   mov byte ptr ds:[edx+0x403087],bl        ; 赋值给固定的十六位值
+0040117E    83C2 02         add edx,0x2                              ; 每次循环加2
+00401181    41              inc ecx
+00401182    3BC8            cmp ecx,eax                              ; 输入的位数等于循环次数
+00401184  ^ 75 C1           jnz short d2k2_crk.00401147
+00401186    33C9            xor ecx,ecx
+00401188    33D2            xor edx,edx
+0040118A    33DB            xor ebx,ebx
+0040118C    8A99 87304000   mov bl,byte ptr ds:[ecx+0x403087]
+00401192    03D3            add edx,ebx                              ; bl将这个数加给edx
+00401194    41              inc ecx
+00401195    83F9 10         cmp ecx,0x10
+00401198  ^ 75 F2           jnz short d2k2_crk.0040118C              ; 循环0x10次，不断加值给edx
+0040119A    69C0 FF000000   imul eax,eax,0xFF
+004011A0    0FAFD0          imul edx,eax
+004011A3    81F2 ABDFEBAC   xor edx,0xACEBDFAB                       ; 关键
+004011A9    0FCA            bswap edx
+004011AB    52              push edx
+004011AC    68 00304000     push d2k2_crk.00403000                   ; %lX
+004011B1    68 18314000     push d2k2_crk.00403118
+004011B6    E8 C3000000     call &lt;jmp.&amp;user32.wsprintfA&gt;
+004011BB    83C4 0C         add esp,0xC
+004011BE    33DB            xor ebx,ebx
+004011C0    33C9            xor ecx,ecx
+004011C2    8A99 18314000   mov bl,byte ptr ds:[ecx+0x403118]        ; 这个就是上面bswap的edx的值
+004011C8    80FB 3A         cmp bl,0x3A
+004011CB    7C 02           jl short d2k2_crk.004011CF
+004011CD    EB 09           jmp short d2k2_crk.004011D8
+004011CF    80C3 11         add bl,0x11
+004011D2    8899 18314000   mov byte ptr ds:[ecx+0x403118],bl
+004011D8    41              inc ecx
+004011D9    83F9 08         cmp ecx,0x8
+004011DC  ^ 75 E4           jnz short d2k2_crk.004011C2
+004011DE    33DB            xor ebx,ebx
+004011E0    33C9            xor ecx,ecx
+004011E2    33D2            xor edx,edx
+004011E4    8A99 18314000   mov bl,byte ptr ds:[ecx+0x403118]        ; 这里是对十六位值得奇数位的改变
+004011EA    889A 88304000   mov byte ptr ds:[edx+0x403088],bl        ; 这里完成对第二个比较的赋值
+004011F0    83C2 02         add edx,0x2
+004011F3    41              inc ecx
+004011F4    83FA 10         cmp edx,0x10
+004011F7  ^ 75 EB           jnz short d2k2_crk.004011E4
+004011F9    33DB            xor ebx,ebx
+004011FB    33C9            xor ecx,ecx
+004011FD    33D2            xor edx,edx
+004011FF    33C0            xor eax,eax
+00401201    8A9A C8304000   mov bl,byte ptr ds:[edx+0x4030C8]
+00401207    8A82 87304000   mov al,byte ptr ds:[edx+0x403087]        ; 这两个数据值要相等
+0040120D    33C3            xor eax,ebx
+0040120F  ^ 0F85 14FFFFFF   jnz d2k2_crk.00401129
+00401215    8A9A C9304000   mov bl,byte ptr ds:[edx+0x4030C9]
+0040121B    8A82 88304000   mov al,byte ptr ds:[edx+0x403088]
+00401221    04 05           add al,0x5
+00401223    38C3            cmp bl,al                                ; 要满足条件bl-al=5
+00401225  ^ 0F85 FEFEFFFF   jnz d2k2_crk.00401129
+0040122B    83C2 02         add edx,0x2
+0040122E    83FA 10         cmp edx,0x10
+00401231  ^ 75 CE           jnz short d2k2_crk.00401201
+00401233    68 6B304000     push d2k2_crk.0040306B                   ; Thank you for your support!
+00401238    6A 68           push 0x68
+0040123A    FF75 08         push dword ptr ss:[ebp+0x8]
+0040123D    E8 5A000000     call &lt;jmp.&amp;user32.SetDlgItemTextA&gt;
+</code></pre><p>讲讲这段逻辑的基本思路：</p>
+<pre><code>先判断第二个框的值是否是16位的，如果不是，跳转到unvalid
+取出第一个框的长度，要求第一个框的长度在2-8个字之间(事实上它那个判断逻辑有点问题，应该1个字节也是可以的)
+判断无误后，进入生成注册码算法
+
+# 生成注册码算法：
+
+在ds:[0+0x403087]数据段中存放着一个固定的值&quot;EJDACBBTACGIDFNG&quot;，这个值是注册码的雏形
+
+算法首先对我们输入的第一个框的值进行格式化和过滤，规则经分析后总结如下：
+
+       如果值在0-20，那么赋予固定值&quot;F&quot;；
+       如果值在21-3A,那么这个值加上0x20；
+       如果值在3B-40，那么赋予固定值&quot;G&quot;；
+       如果值在41-5A，那么不用处理；
+       如果值在5B-60，那么赋予固定值&quot;S&quot;；
+       如果值在61-7A，那么这个值减去0x20；
+       如果值在7B及以上，那么赋予固定值&quot;G&quot;；
+
+然后依次将这些值赋给ds:[0+0x403087]的偶数索引，比如我们输入的值是&quot;AAAAAAAA&quot;，则有：
+     &quot;EJDACBBTACGIDFNG&quot; =&gt; &quot;AJAAABATACAIAFAG&quot;
+
+接下来：
+
+edx = ds:[0+0x403087]的每个字符的ASCII值的总和
+eax = 输入的第一个框的值的长度 * 0xFF
+edx = eax * edx
+edx = edx xor 0xACEBDFAB(这个是固定的)
+edx进行bswap，也就是第一个字节跟第四个字节交换，第二个字节和第三个字节交换，比如&quot;AFDAFCBA&quot; =&gt; &quot;BAFCDAAF&quot;
+检验edx的每个位的ASCII值是否小于0x3A,如果是,加上0x11
+然后将edx的每一位替换ds:[0+0x403087]的奇数索引
+比如&quot;AJAAABATACAIAFAG&quot; =&gt; &quot;ABAAAFACADAAAAAF&quot;
+将这个值和第二个框输入的值进行比较，比较规则如下：
+
+       如果是偶数索引，要求相等；
+       如果是奇数索引，那么对应的第二个框的那一位的ASCII值要大5；
+</code></pre><p>思路理清了，接下来就是写个注册机了，注册机源代码在<a href="">这里</a>，用的易语言写的，运行如图：</p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/crackme-%E6%B3%A8%E5%86%8C%E6%9C%BA.png" alt="crackme-注册机"></p>
+<p>拿这个去尝试：</p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/crackme-%E6%B3%A8%E5%86%8C%E6%88%90%E5%8A%9F.png" alt="crackme-注册成功"></p>
+<p>爆破版的这里就不放了，就是改几个关键跳转的事情  </p>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2017/01/11/xampp-phpstorm的简单配置/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                xampp + phpstorm的简单配置
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2016/10/31/脱壳练习1/">
+                记一次小软件脱壳
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
+        </div>
+        <div class="cube-right">
+            
+
+<div class="cube-search cube-sidebar" id="cube-search">
+    <div class="search-container">
+        <input type="text" placeholder="搜索" class="cube-search-input" id="cube-search-input">
+        <i class="cube-icon cube-icon-search cube-search-submit" aria-hidden="true"></i>
+    </div>
+    <!-- TODO 通过给window赋一个全局变量，通过脚本赋值 -->
+</div>
+<script>
+    (function (window) {
+        'use strict';
+        window.searchModule = {}
+        window.searchModule.JSONUrl = '/content.json'
+        window.searchModule.rootUrl = '/'
+    })(window)
+</script>
+<div class="cube-search-form">
+    <div class="cube-search-control">
+        <input type="text" placeholder="搜索" class="search-input">
+        <a class="close-button">
+            <i class="cube-icon cube-close" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="cube-search-result"></div>
+</div>
+
+
+<div class="cube-author cube-sidebar" id="cube-author">
+    
+    
+    <style>
+        @media(min-width: 768px) {
+            .cube-author img {
+                margin-top: 40px;
+                margin-bottom: 10px;
+            }
+        }
+        @media(max-width: 1120px) and (min-width: 768px) {
+            .cube-author img {
+                width: 128px;
+                height: 128px;
+            }
+        }
+        @media(min-width: 1120px) {
+            .cube-author img {
+                width: 160px;
+                height: 160px;
+            }
+        }
+    </style>
+    
+    <img src="/images/avatar.png" alt="avatar" class="cube-avatar">
+    
+    
+    <span>AONOSORA</span>
+    
+    
+    <a title="今生今世轮回尽, 来世愿为幻想乡">今生今世轮回尽, 来世愿为幻想乡</a>
+    
+    <div class="count">
+        <a class="count articles"><span>14</span>文章</a>
+        <a class="count tags"><span>13</span>标签</a>
+        <a class="count categories"><span>3</span>分类</a>
+    </div>
+</div>
+
+
+
+<div class="cube-music cube-sidebar" id="cube-music">
+    <div class="cube-player aplayer" id="cube-player"></div>
+</div>
+<script>
+    (function (window) {
+        window.musicModule = {}
+        window.musicModule.musicConfig = '{"narrow":false,"autoplay":false,"showlrc":3,"theme":"#b7daff","mutex":true,"mode":"circulation","preload":"auto","listmaxheight":"513px","music":[{"title":"Dear friends","author":"TRIPLANE","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/TRIPLANE - Dear friends.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Dear friends - TRIPLANE.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/TRIPLANE - Dear friends.jpg"},{"title":"Butter-Fly","author":"和田光司","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/和田光司 - Butter-Fly (ピアノヴァージョン).mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Butter-Fly (ピアノヴァージョン) - 和田光司.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/和田光司 - Butter-Fly (ピアノヴァージョン).jpg"},{"title":"宵闇花火","author":"葉月ゆら","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/葉月ゆら - 宵闇花火.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/宵闇花火 - 葉月ゆら.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/葉月ゆら - 宵闇花火.jpg"}]}'
+        window.musicModule.lrcConfig = {
+            open: '开启歌词',
+            close: '关闭歌词'
+        }
+    })(window)
+</script>
+
+
+
+<div class="cube-recent-posts cube-sidebar" id="cube-recent-posts">
+    <div class="title">
+        <a>近期文章</a>
+    </div>
+    <ul class="list">
+        
+        
+        <li>
+            <!-- TODO 如果文章要显示图片，那么在front-matter上添加preview属性(url or path) -->
+            
+            
+            <div class="preview">
+                <p class="index first">
+                    <span>1</span>
+                </p>
+                <div class="image" style="background-image: url(/images/previews/测试各种markdown的样式.png);"></div>
+                <div class="info">
+                    <p class="title">
+                        <a href="/2017/07/28/测试各种markdown的样式/" title="测试各种markdown的样式">测试各种markdown的样式</a>
+                    </p>
+                    <p class="date">
+                        2017-07-28
+                    </p>
+                </div>
+            </div>
+            
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>2</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/03/04/博客搬迁/" title="博客搬迁">博客搬迁</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>3</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/01/11/xampp-phpstorm的简单配置/" title="xampp + phpstorm的简单配置">xampp + phpstorm的简单配置</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>4</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/11/07/某crackme破解/" title="某crackme破解">某crackme破解</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>5</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/10/31/脱壳练习1/" title="记一次小软件脱壳">记一次小软件脱壳</a>
+                </p>
+            </div>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-categories cube-sidebar" id="cube-categories">
+    <div class="title">
+        <a href="/categories">分类</a>
+    </div>
+    <div class="cube-boxs">
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/Python/">#Python</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/前端/">#前端</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/逆向工程/">#逆向工程</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="cube-tagcloud cube-sidebar" id="cube-tagcloud">
+    <div class="title">
+        <a href="/tags">标签云</a>
+    </div>
+    <div class="cube-boxs">
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/杂谈/">#杂谈</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/python/">#python</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/javascript/">#javascript</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/AngularJS/">#AngularJS</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/php/">#php</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/网络相关/">#网络相关</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/云服务器/">#云服务器</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/逆向/">#逆向</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/网络安全/">#网络安全</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/Vue/">#Vue</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/Angular/">#Angular</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/React/">#React</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/博客搭建/">#博客搭建</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="cube-links cube-sidebar" id="cube-links">
+    <div class="title">
+        <a>个人链接</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/GitHub.png">
+            
+            <a href="https://github.com/ZEROKISEKI" target="_blank">GitHub</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/Coding.png">
+            
+            <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/SF.png">
+            
+            <a href="https://segmentfault.com/u/aonosora" target="_blank">SF社区</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/开发者头条.png">
+            
+            <a href="https://toutiao.io/u/148070" target="_blank">开发者头条</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-friend-links cube-sidebar" id="cube-friend-links">
+    <div class="title">
+        <a>友情链接</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/micblo.png">
+            <a href="https://blog.micblo.com/" target="_blank">罗大佬</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/DIYgod.jpg">
+            <a href="https://www.anotherhome.net/" target="_blank">DIYgod</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="/images/friend_links.jpg ">
+            <a href="https://aonosora.com/" target="_blank">咪西西の部落格</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+    </div>
+</div>
+<footer class="cube-footer">
+    
+© 2017 AONOSORA
+
+<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+</footer>
+<!-- inject:script -->
+<script src="/js/script.js"></script>
+<!-- endinject -->
+<div class="cube-loading out"></div>
+</body>
+</html>

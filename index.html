@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="AONOSORA">
+    
+    <meta name="description" content="今生今世轮回尽, 来世愿为幻想乡">
+    
+    
+    
+    
+    
+    
+    <title>senrenbankaの部落格</title>
+    <!-- inject:style -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <!-- endinject -->
+    <style>
+        .cube-loading {
+            top: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('/images/lg/loading.gif') no-repeat center center;
+            background-color: rgba(0,0,0,.7);
+        }
+
+        .cube-loading.out {
+            display: none;
+        }
+
+        .cube-loading:before {
+            display: block;
+            content: '加载中';
+            position: relative;
+            width: 100%;
+            top: 50%;
+            right: -50%;
+            color: #fff;
+        }
+
+        @media(max-width: 768px) {
+            .cube-loading:before {
+                font-size: 1.2em;
+                transform: translate(-24px,20px);
+                -webkit-transform: translate(-24px,20px);
+                -o-transform: translate(-24px,20px);
+                -ms-transform: translate(-24px,20px);
+            }
+        }
+
+        @media(min-width: 768px) {
+            .cube-loading:before {
+
+            }
+        }
+    </style>
+    
+</head>
+<body>
+<div class="cube-body">
+    <nav id="cube-top-memu" class="cube-menu">
+    <ul class="cube-menu-collapse">
+        
+        <li>
+            <i class="cube-icon cube-icon-home" aria-hidden="true"></i>
+            <a href="/">首页</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-archive" aria-hidden="true"></i>
+            <a href="/archives">归档</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-tags" aria-hidden="true"></i>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-about" aria-hidden="true"></i>
+            <a href="/about-me">关于我</a>
+        </li>
+        
+    </ul>
+</nav>
+<nav class="cube-side-menu" id="cube-side-menu">
+    <ul class="cube-menu-list">
+        
+        <li>
+            <a class="lrc-control">开启歌词</a>
+        </li>
+        
+        <li>
+            <a class="scroll-to-top">回到顶部</a>
+        </li>
+    </ul>
+</nav>
+    <header class="cube-header" id="cube-header">
+    <img src=" http://cube-1252774894.cosgz.myqcloud.com/background.png " alt="头部背景图片">
+    
+    <div class="cube-type">
+        <span class="cube-typed-title">senrenbankaの部落格</span>
+        <span class="cube-typed-cursor">|</span>
+    </div>
+    
+</header>
+
+    <style>
+        nav.cube-menu:before {
+            content: '';
+            visibility: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 44px;
+        
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+        
+            z-index: -1;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-repeat: no-repeat;
+            background-position: center -356px;
+            background-size: cover;
+            background-color: transparent;
+        }
+
+        header.cube-background.cube-header-background {
+            visibility: hidden;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-position: center -400px;
+        }
+    </style>
+    <header class="cube-background cube-header-background">
+        
+        <div class="cube-type">
+            <span class="cube-typed-title">senrenbankaの部落格</span>
+            <span class="cube-typed-cursor">|</span>
+        </div>
+        
+    </header>
+    <div class="load-header-background"></div>
+    <script>
+        (function (window) {
+
+            window.headerModule = {}
+            window.headerModule.image = {
+                width: '2000',
+                height: '1414'
+            }
+
+        })(window)
+    </script>
+    
+    <div class="cube-content">
+        <div class="cube-left">
+            
+<div class="cube-excerpt" id="cube-excerpt-测试各种markdown的样式">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2017/07/28/测试各种markdown的样式/">测试各种markdown的样式</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2017-07-28
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/网络安全/" class="cube-excerpt-tag-link">#网络安全</a>
+                
+                <a href="/tags/Vue/" class="cube-excerpt-tag-link">#Vue</a>
+                
+                <a href="/tags/Angular/" class="cube-excerpt-tag-link">#Angular</a>
+                
+                <a href="/tags/React/" class="cube-excerpt-tag-link">#React</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <ul>
+<li>测试1<code>哈哈</code></li>
+<li>测试2<strong>哈哈</strong></li>
+<li>测试3<strong><em>哈哈哈</em></strong></li>
+<li>测试4<em>哈哈哈</em></li>
+</ul>
+<p><code>var http = require(&#39;http&#39;)</code></p>
+<hr>
+<h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><h2 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h2><h3 id="标题三"><a href="#标题三" class="headerlink" title="标题三"></a>标题三</h3><h4 id="标题四"><a href="#标题四" class="headerlink" title="标题四"></a>标题四</h4><h5 id="标题五"><a href="#标题五" class="headerlink" title="标题五"></a>标题五</h5>
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2017/07/28/测试各种markdown的样式/">阅读全文</a>
+    </footer>
+</div>
+
+<div class="cube-excerpt" id="cube-excerpt-博客搬迁">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2017/03/04/博客搬迁/">博客搬迁</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2017-03-04
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/杂谈/" class="cube-excerpt-tag-link">#杂谈</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <p>新博客已经部署完毕了，地址<a href="https://www.aonosora.com" target="_blank" rel="external">https://www.aonosora.com</a>，欢迎探访。</p>
+
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2017/03/04/博客搬迁/">阅读全文</a>
+    </footer>
+</div>
+
+<div class="cube-excerpt" id="cube-excerpt-xampp + phpstorm的简单配置">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2017/01/11/xampp-phpstorm的简单配置/">xampp + phpstorm的简单配置</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2017-01-11
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/php/" class="cube-excerpt-tag-link">#php</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><p>安装以下东东：</p>
+<ol>
+<li><a href="https://www.apachefriends.org/download.html" target="_blank" rel="external">XAMPP</a></li>
+<li>PhpStorm(如果有学生邮箱，请到<a href="www.jetbrains.com">jetbrains官网</a>下载正版，可以免费使用正版，如果没有，百度下载，并下载注册机)</li>
+</ol>
+<h3 id="配置XAMPP"><a href="#配置XAMPP" class="headerlink" title="配置XAMPP"></a>配置XAMPP</h3><p>如下图，安装了apache之后，可以在<code>httpd.conf</code>文件配置监听端口:</p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/php/xampp-phpstorm%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/1.png" alt="打开httpd.conf">  </p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/php/xampp-phpstorm%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/2.png" alt="修改httpd.conf"></p>
+<p>在<strong>Actions</strong>那里可以点击启动或者停止服务，这样的话用XAMPP无脑搭建环境的方式就成功了。</p>
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2017/01/11/xampp-phpstorm的简单配置/">阅读全文</a>
+    </footer>
+</div>
+
+<div class="cube-excerpt" id="cube-excerpt-某crackme破解">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2016/11/07/某crackme破解/">某crackme破解</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2016-11-07
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/逆向/" class="cube-excerpt-tag-link">#逆向</a>
+                
+                <a href="/tags/网络安全/" class="cube-excerpt-tag-link">#网络安全</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <h2 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00: 前言"></a>0x00: 前言</h2><p>前两天看雪CTF大赛开始，然而对于看雪的CM题目完全是一脸懵逼，于是决定进行CM的训练，废话不多说，目标是这家伙：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/crackme1.png" alt="crackme1"></p>
+<p>居然还用了diablo的头像hhh，运行界面：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/crackme2.png" alt="crackme2"></p>
+<h2 id="0x01-脱壳"><a href="#0x01-脱壳" class="headerlink" title="0x01: 脱壳"></a>0x01: 脱壳</h2><p>简单说明下，上下两个框都可以输入，如果输入有误，第二个框的值会变成”register unvalid”之类的东西，首先用<strong><em>PEID</em></strong>查下壳：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/crackme-%E6%9F%A5%E5%A3%B3.png" alt="查壳"><br>yoda’s crypter的壳，那么就来脱掉它吧~</p>
+<p>OD载入程序进行异常计数，然后断在最后一次异常中，此时查看堆栈得知SEH的处理<code>Handle</code>在<code>0040C70C</code>中，于是跳到异常处理函数中，下面是异常处理函数：</p>
+<pre><code>0040C70C    55              push ebp
+0040C70D    8BEC            mov ebp,esp
+0040C70F    57              push edi
+0040C710    8B45 10         mov eax,dword ptr ss:[ebp+0x10]
+0040C713    8BB8 C4000000   mov edi,dword ptr ds:[eax+0xC4]
+0040C719    FF37            push dword ptr ds:[edi]
+0040C71B    33FF            xor edi,edi
+0040C71D    64:8F07         pop dword ptr fs:[edi]
+0040C720    8380 C4000000 0&gt;add dword ptr ds:[eax+0xC4],0x8
+0040C727    8BB8 A4000000   mov edi,dword ptr ds:[eax+0xA4]
+0040C72D    C1C7 07         rol edi,0x7
+0040C730    89B8 B8000000   mov dword ptr ds:[eax+0xB8],edi
+0040C736    B8 00000000     mov eax,0x0
+0040C73B    5F              pop edi    这里edi的值为0x40A950,为跳转到OEP的关键
+0040C73C    C9              leave
+0040C73D    C3              retn
+</code></pre><p>跳到edi指向的地址，然后单步跟踪，很快就找到了OEP了，OEP代码如下：</p>
+<pre><code>00401000    6A 00           push 0x0
+00401002    E8 71020000     call d2k2_crk.00401278                   ; jmp 到 kernel32.GetModuleHandleA
+00401007    A3 40314000     mov dword ptr ds:[0x403140],eax
+0040100C    6A 00           push 0x0
+0040100E    68 28104000     push d2k2_crk.00401028
+00401013    6A 00           push 0x0
+00401015    6A 01           push 0x1
+00401017    FF35 40314000   push dword ptr ds:[0x403140]
+0040101D    E8 62020000     call d2k2_crk.00401284                   ; jmp 到 user32.DialogBoxParamA
+00401022    50              push eax
+00401023    E8 4A020000     call d2k2_crk.00401272                   ; jmp 到 kernel32.ExitProcess
+00401028    55              push ebp
+00401029    8BEC            mov ebp,esp
+0040102B    817D 0C 1101000&gt;cmp dword ptr ss:[ebp+0xC],0x111
+</code></pre><p>明显的TASM/MASM32程序，于是脱壳，再次查壳：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/crackme-%E6%9F%A5%E5%A3%B3%28%E5%B7%B2%E8%84%B1%E5%A3%B3%29.png" alt="crackme-查壳(已脱壳)"><br>
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2016/11/07/某crackme破解/">阅读全文</a>
+    </footer>
+</div>
+
+<div class="cube-excerpt" id="cube-excerpt-记一次小软件脱壳">
+    <header class="cube-excerpt-header">
+        <h1><a href="/2016/10/31/脱壳练习1/">记一次小软件脱壳</a></h1>
+        <div class="cube-excerpt-header-msg">
+            <div class="cube-excerpt-date">
+                <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+                2016-10-31
+            </div>
+            <div class="cube-excerpt-tags">
+                <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+                
+                <a href="/tags/逆向/" class="cube-excerpt-tag-link">#逆向</a>
+                
+            </div>
+        </div>
+    </header>
+    <article class="cube-excerpt-entry cube-markdown">
+        
+        
+           <p>目标： 跑跑排行榜1.9.exe<br>界面： <img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-%E7%95%8C%E9%9D%A2.png" alt="跑跑排行榜-界面"></p>
+<p>首先用PEID查壳，得知是tELock v0.98的壳:<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-%E6%9F%A5%E5%A3%B3.png" alt="跑跑排行榜-查壳"></p>
+<p>首先，愉快地打开OD:<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-OD%E5%88%9D%E5%A7%8B%E7%95%8C%E9%9D%A2.png" alt="跑跑排行榜-OD初始界面"></p>
+<p>直接F9，到第一次异常发生的地方:<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%B7%91%E8%B7%91%E6%8E%92%E8%A1%8C%E6%A6%9C-%E7%AC%AC%E4%B8%80%E6%AC%A1F9.png" alt="跑跑排行榜-第一次F9"><br>
+        
+    </article>
+    <footer class="cube-excerpt-footer">
+        <a class="cube-excerpt-more" href="/2016/10/31/脱壳练习1/">阅读全文</a>
+    </footer>
+</div>
+
+
+
+<ul class="cube-pagination cube-pagination-6">
+    
+    <li class="cube-pagination-prev disabled">
+        <span>« 上一页</span>
+    </li>
+    
+    
+        
+            
+            <li class="cube-pagination-index disabled">
+                <span>1</span>
+            </li>
+            
+        
+            
+            <li class="cube-pagination-index">
+                <a href="/page/2">2</a>
+            </li>
+            
+        
+            
+            <li class="cube-pagination-index">
+                <a href="/page/3">3</a>
+            </li>
+            
+        
+    
+
+    
+    <li class="cube-pagination-next">
+        <a href="/page/2/">下一页 »</a>
+    </li>
+    
+</ul>
+
+<!--其他组件后续添加-->
+        </div>
+        <div class="cube-right">
+            
+
+<div class="cube-search cube-sidebar" id="cube-search">
+    <div class="search-container">
+        <input type="text" placeholder="搜索" class="cube-search-input" id="cube-search-input">
+        <i class="cube-icon cube-icon-search cube-search-submit" aria-hidden="true"></i>
+    </div>
+    <!-- TODO 通过给window赋一个全局变量，通过脚本赋值 -->
+</div>
+<script>
+    (function (window) {
+        'use strict';
+        window.searchModule = {}
+        window.searchModule.JSONUrl = '/content.json'
+        window.searchModule.rootUrl = '/'
+    })(window)
+</script>
+<div class="cube-search-form">
+    <div class="cube-search-control">
+        <input type="text" placeholder="搜索" class="search-input">
+        <a class="close-button">
+            <i class="cube-icon cube-close" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="cube-search-result"></div>
+</div>
+
+
+<div class="cube-author cube-sidebar" id="cube-author">
+    
+    
+    <style>
+        @media(min-width: 768px) {
+            .cube-author img {
+                margin-top: 40px;
+                margin-bottom: 10px;
+            }
+        }
+        @media(max-width: 1120px) and (min-width: 768px) {
+            .cube-author img {
+                width: 128px;
+                height: 128px;
+            }
+        }
+        @media(min-width: 1120px) {
+            .cube-author img {
+                width: 160px;
+                height: 160px;
+            }
+        }
+    </style>
+    
+    <img src="/images/avatar.png" alt="avatar" class="cube-avatar">
+    
+    
+    <span>AONOSORA</span>
+    
+    
+    <a title="今生今世轮回尽, 来世愿为幻想乡">今生今世轮回尽, 来世愿为幻想乡</a>
+    
+    <div class="count">
+        <a class="count articles"><span>14</span>文章</a>
+        <a class="count tags"><span>13</span>标签</a>
+        <a class="count categories"><span>3</span>分类</a>
+    </div>
+</div>
+
+
+
+<div class="cube-music cube-sidebar" id="cube-music">
+    <div class="cube-player aplayer" id="cube-player"></div>
+</div>
+<script>
+    (function (window) {
+        window.musicModule = {}
+        window.musicModule.musicConfig = '{"narrow":false,"autoplay":false,"showlrc":3,"theme":"#b7daff","mutex":true,"mode":"circulation","preload":"auto","listmaxheight":"513px","music":[{"title":"Dear friends","author":"TRIPLANE","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/TRIPLANE - Dear friends.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Dear friends - TRIPLANE.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/TRIPLANE - Dear friends.jpg"},{"title":"Butter-Fly","author":"和田光司","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/和田光司 - Butter-Fly (ピアノヴァージョン).mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Butter-Fly (ピアノヴァージョン) - 和田光司.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/和田光司 - Butter-Fly (ピアノヴァージョン).jpg"},{"title":"宵闇花火","author":"葉月ゆら","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/葉月ゆら - 宵闇花火.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/宵闇花火 - 葉月ゆら.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/葉月ゆら - 宵闇花火.jpg"}]}'
+        window.musicModule.lrcConfig = {
+            open: '开启歌词',
+            close: '关闭歌词'
+        }
+    })(window)
+</script>
+
+
+
+<div class="cube-recent-posts cube-sidebar" id="cube-recent-posts">
+    <div class="title">
+        <a>近期文章</a>
+    </div>
+    <ul class="list">
+        
+        
+        <li>
+            <!-- TODO 如果文章要显示图片，那么在front-matter上添加preview属性(url or path) -->
+            
+            
+            <div class="preview">
+                <p class="index first">
+                    <span>1</span>
+                </p>
+                <div class="image" style="background-image: url(/images/previews/测试各种markdown的样式.png);"></div>
+                <div class="info">
+                    <p class="title">
+                        <a href="/2017/07/28/测试各种markdown的样式/" title="测试各种markdown的样式">测试各种markdown的样式</a>
+                    </p>
+                    <p class="date">
+                        2017-07-28
+                    </p>
+                </div>
+            </div>
+            
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>2</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/03/04/博客搬迁/" title="博客搬迁">博客搬迁</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>3</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/01/11/xampp-phpstorm的简单配置/" title="xampp + phpstorm的简单配置">xampp + phpstorm的简单配置</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>4</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/11/07/某crackme破解/" title="某crackme破解">某crackme破解</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>5</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/10/31/脱壳练习1/" title="记一次小软件脱壳">记一次小软件脱壳</a>
+                </p>
+            </div>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-categories cube-sidebar" id="cube-categories">
+    <div class="title">
+        <a href="/categories">分类</a>
+    </div>
+    <div class="cube-boxs">
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/Python/">#Python</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/前端/">#前端</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/逆向工程/">#逆向工程</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="cube-tagcloud cube-sidebar" id="cube-tagcloud">
+    <div class="title">
+        <a href="/tags">标签云</a>
+    </div>
+    <div class="cube-boxs">
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/杂谈/">#杂谈</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/python/">#python</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/javascript/">#javascript</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/AngularJS/">#AngularJS</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/php/">#php</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/网络相关/">#网络相关</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/云服务器/">#云服务器</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/逆向/">#逆向</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/网络安全/">#网络安全</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/Vue/">#Vue</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/Angular/">#Angular</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/React/">#React</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/博客搭建/">#博客搭建</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="cube-links cube-sidebar" id="cube-links">
+    <div class="title">
+        <a>个人链接</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/GitHub.png">
+            
+            <a href="https://github.com/ZEROKISEKI" target="_blank">GitHub</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/Coding.png">
+            
+            <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/SF.png">
+            
+            <a href="https://segmentfault.com/u/aonosora" target="_blank">SF社区</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/开发者头条.png">
+            
+            <a href="https://toutiao.io/u/148070" target="_blank">开发者头条</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-friend-links cube-sidebar" id="cube-friend-links">
+    <div class="title">
+        <a>友情链接</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/micblo.png">
+            <a href="https://blog.micblo.com/" target="_blank">罗大佬</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/DIYgod.jpg">
+            <a href="https://www.anotherhome.net/" target="_blank">DIYgod</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="/images/friend_links.jpg ">
+            <a href="https://aonosora.com/" target="_blank">咪西西の部落格</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+    </div>
+</div>
+<footer class="cube-footer">
+    
+© 2017 AONOSORA
+
+<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+</footer>
+<!-- inject:script -->
+<script src="/js/script.js"></script>
+<!-- endinject -->
+<div class="cube-loading out"></div>
+</body>
+</html>

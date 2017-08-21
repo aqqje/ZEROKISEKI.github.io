@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="AONOSORA">
+    
+    <meta name="description" content="今生今世轮回尽, 来世愿为幻想乡">
+    
+    
+    
+    
+    
+    
+    <title>xampp + phpstorm的简单配置 | senrenbankaの部落格</title>
+    <!-- inject:style -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <!-- endinject -->
+    <style>
+        .cube-loading {
+            top: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('/images/lg/loading.gif') no-repeat center center;
+            background-color: rgba(0,0,0,.7);
+        }
+
+        .cube-loading.out {
+            display: none;
+        }
+
+        .cube-loading:before {
+            display: block;
+            content: '加载中';
+            position: relative;
+            width: 100%;
+            top: 50%;
+            right: -50%;
+            color: #fff;
+        }
+
+        @media(max-width: 768px) {
+            .cube-loading:before {
+                font-size: 1.2em;
+                transform: translate(-24px,20px);
+                -webkit-transform: translate(-24px,20px);
+                -o-transform: translate(-24px,20px);
+                -ms-transform: translate(-24px,20px);
+            }
+        }
+
+        @media(min-width: 768px) {
+            .cube-loading:before {
+
+            }
+        }
+    </style>
+    
+</head>
+<body>
+<div class="cube-body">
+    <nav id="cube-top-memu" class="cube-menu">
+    <ul class="cube-menu-collapse">
+        
+        <li>
+            <i class="cube-icon cube-icon-home" aria-hidden="true"></i>
+            <a href="/">首页</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-archive" aria-hidden="true"></i>
+            <a href="/archives">归档</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-tags" aria-hidden="true"></i>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-about" aria-hidden="true"></i>
+            <a href="/about-me">关于我</a>
+        </li>
+        
+    </ul>
+</nav>
+<nav class="cube-side-menu" id="cube-side-menu">
+    <ul class="cube-menu-list">
+        
+        <li>
+            <a class="lrc-control">开启歌词</a>
+        </li>
+        
+        <li>
+            <a class="scroll-to-top">回到顶部</a>
+        </li>
+    </ul>
+</nav>
+    <header class="cube-header" id="cube-header">
+    <img src=" http://cube-1252774894.cosgz.myqcloud.com/background.png " alt="头部背景图片">
+    
+    <div class="cube-type">
+        <span class="cube-typed-title">senrenbankaの部落格</span>
+        <span class="cube-typed-cursor">|</span>
+    </div>
+    
+</header>
+
+    <style>
+        nav.cube-menu:before {
+            content: '';
+            visibility: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 44px;
+        
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+        
+            z-index: -1;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-repeat: no-repeat;
+            background-position: center -356px;
+            background-size: cover;
+            background-color: transparent;
+        }
+
+        header.cube-background.cube-header-background {
+            visibility: hidden;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-position: center -400px;
+        }
+    </style>
+    <header class="cube-background cube-header-background">
+        
+        <div class="cube-type">
+            <span class="cube-typed-title">senrenbankaの部落格</span>
+            <span class="cube-typed-cursor">|</span>
+        </div>
+        
+    </header>
+    <div class="load-header-background"></div>
+    <script>
+        (function (window) {
+
+            window.headerModule = {}
+            window.headerModule.image = {
+                width: '2000',
+                height: '1414'
+            }
+
+        })(window)
+    </script>
+    
+    <div class="cube-content">
+        <div class="cube-left">
+            <div class="cube-article">
+    <h1 class="title">xampp + phpstorm的简单配置</h1>
+    
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2017-01-11
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+    <a href="/tags/php/">#php</a>
+    
+</div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><p>安装以下东东：</p>
+<ol>
+<li><a href="https://www.apachefriends.org/download.html" target="_blank" rel="external">XAMPP</a></li>
+<li>PhpStorm(如果有学生邮箱，请到<a href="www.jetbrains.com">jetbrains官网</a>下载正版，可以免费使用正版，如果没有，百度下载，并下载注册机)</li>
+</ol>
+<h3 id="配置XAMPP"><a href="#配置XAMPP" class="headerlink" title="配置XAMPP"></a>配置XAMPP</h3><p>如下图，安装了apache之后，可以在<code>httpd.conf</code>文件配置监听端口:</p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/php/xampp-phpstorm%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/1.png" alt="打开httpd.conf">  </p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/php/xampp-phpstorm%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/2.png" alt="修改httpd.conf"></p>
+<p>在<strong>Actions</strong>那里可以点击启动或者停止服务，这样的话用XAMPP无脑搭建环境的方式就成功了。</p>
+<a id="more"></a>
+<h3 id="配置PhpStorm"><a href="#配置PhpStorm" class="headerlink" title="配置PhpStorm"></a>配置PhpStorm</h3><p>先给PhpStorm设置好<strong>php interpreter</strong>，在<strong>File-&gt;Settings</strong>里面，搜索<strong>php</strong>,设置好php语言版本,<strong>CLI Interpreter</strong>的路径选择你安装的php或者xampp自带的php，如图所示，我选择的是xampp自带的php，PhpStorm自动显示出了php版本：</p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/php/xampp-phpstorm%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/3.png" alt="设置PhpStorm的php支持"></p>
+<p>我们上面配置了Apache，随便建立一个工程，创建一个php文件，写下<code>echo 1;</code>之类的，然后run，但是此时在PhpStorm上run的时候是无效的，这是因为我们还没配置好PhpStorm server, 在<strong>Settings</strong>里面搜索<strong>server</strong>,然后添加一个配置，<strong>name</strong>的话自定义，<strong>Host</strong>设置为<code>localhost</code>，<strong>Port</strong>设置为XAMPP Apache配置的端口(比如我的是8080，那么这里就填8080),<strong>Debugger</strong>选择<code>Xdebug</code>，具体配置后面再讲，配置图如下所示：</p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/php/xampp-phpstorm%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/4.png" alt="配置PhpStorm Server"></p>
+<p>然后在<strong>Tools-&gt;Deployment-&gt;Configuration</strong>里面进行Apache路径的指向：</p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/php/xampp-phpstorm%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE5.png" alt="Apache指向"></p>
+<p>然后是配置<strong>Run/Debug Configurations</strong>,点击右上角绿箭头左边的下拉框，有个<strong>Edit Configurations</strong>，点击这个可以配置<strong>Run/Debug</strong>的支持,点进去后，点击左上角的<strong>“+”</strong>符号,选择<strong>PHP Web Application</strong>,名字自定，<strong>Server</strong>选择之前配置的<strong>Server</strong>,<strong>Start Url</strong>指定了你点击<strong>Run</strong>的时候默认的路径，配置如下图所示：</p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/php/xampp-phpstorm%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE6.png" alt="配置Run/Debug Configurations"></p>
+<p>确保<strong>Apache</strong>服务已经开启，然后就可以测试是否连接成功了。</p>
+<h3 id="Xdebug的配置"><a href="#Xdebug的配置" class="headerlink" title="Xdebug的配置"></a>Xdebug的配置</h3><p>在PhpStorm中，进入<strong>File-&gt;Settings</strong>,然后搜索<strong>Debug</strong>，如下图所示配置：</p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/php/xampp-phpstorm%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE7.png" alt="配置DBGp"></p>
+<p>然后点击<strong>Debug</strong>,确定<strong>Debug Port</strong>为上面配置的端口,其他默认:</p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/php/xampp-phpstorm%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE8.png" alt="确定Debug"></p>
+<p>然后是php方面的Xdebug配置，首先你要确保PhpStorm引用的php解析有Xdebug的支持，如下图所示(我这里用的是XAMPP的php)：</p>
+<pre><code>$ php -v
+PHP 5.5.19 (cli) (built: Nov 12 2014 12:35:44)
+Copyright (c) 1997-2014 The PHP Group
+Zend Engine v2.5.0, Copyright (c) 1998-2014 Zend Technologies
+with Xdebug v2.2.5, Copyright (c) 2002-2014, by Derick Rethans
+
+$ php -m
+[PHP Modules]
+bcmath
+bz2
+calendar
+Core
+ctype
+curl
+date
+dom
+ereg
+exif
+filter
+ftp
+gd
+gettext
+hash
+iconv
+json
+libxml
+mbstring
+mcrypt
+mhash
+mysql
+mysqli
+mysqlnd
+odbc
+openssl
+pcre
+PDO
+pdo_mysql
+pdo_sqlite
+Phar
+Reflection
+session
+SimpleXML
+soap
+sockets
+SPL
+sqlite3
+standard
+tokenizer
+wddx
+xdebug
+xml
+xmlreader
+xmlrpc
+xmlwriter
+xsl
+zip
+zlib
+
+[Zend Modules]
+Xdebug
+</code></pre><p>如果没有，那么百度下载<strong>Xdebug.dll</strong>，然后在<strong>php.ini</strong>进行如下配置(在<strong>php.ini</strong>中搜索<strong>Xdebug</strong>)：</p>
+<pre><code>zend_extension = &quot;C:\xampp\php\ext\php_xdebug.dll&quot;    //这里的路径替换成你下载的xdebug.dll的路径，版本貌似要2.2.5以上
+</code></pre><p>然后在<strong>php.ini</strong>进行如下配置：</p>
+<pre><code>xdebug.profiler_append = 0
+xdebug.profiler_enable = 1
+xdebug.profiler_enable_trigger = 0
+xdebug.profiler_output_dir = &quot;C:\xampp\tmp&quot;   //注意路径替换成你的Xampp路径
+xdebug.profiler_output_name = &quot;cachegrind.out.%t-%s&quot;
+xdebug.trace_output_dir = &quot;C:\xampp\tmp&quot;    //上同
+
+xdebug.remote_enable = on
+xdebug.remote_handler = dbgp
+xdebug.remote_host = localhost    //下面三行为我们之前在PhpStorm配置的参数
+xdebug.idekey= PhpStorm
+xdebug.remote_port = 9000
+</code></pre><p>给浏览器安装<strong>Xdebug helper</strong>，<strong>Xdebug helper</strong>在<a href="http://download.csdn.net/download/piaoxu7777777/8418043" target="_blank" rel="external">这里</a>下载，下载后直接拖到浏览器就行了，然后在<strong>管理扩展</strong>那里设置<strong>Xdebug helper</strong>:</p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/php/xampp-phpstorm%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE9.png" alt="Xdebug helper设置"></p>
+<p>然后，在PhpStorm中的<strong>Run</strong>选项，点击<strong>Start Listening for PHP Debug Connections</strong>。</p>
+<p>至此，Xdebug设置完成，下面是Debug测试的画面：</p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/php/xampp-phpstorm%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE10.png" alt="测试Debug"></p>
+<p>差不多就这样了。</p>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2017/03/04/博客搬迁/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                博客搬迁
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2016/11/07/某crackme破解/">
+                某crackme破解
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
+        </div>
+        <div class="cube-right">
+            
+
+<div class="cube-search cube-sidebar" id="cube-search">
+    <div class="search-container">
+        <input type="text" placeholder="搜索" class="cube-search-input" id="cube-search-input">
+        <i class="cube-icon cube-icon-search cube-search-submit" aria-hidden="true"></i>
+    </div>
+    <!-- TODO 通过给window赋一个全局变量，通过脚本赋值 -->
+</div>
+<script>
+    (function (window) {
+        'use strict';
+        window.searchModule = {}
+        window.searchModule.JSONUrl = '/content.json'
+        window.searchModule.rootUrl = '/'
+    })(window)
+</script>
+<div class="cube-search-form">
+    <div class="cube-search-control">
+        <input type="text" placeholder="搜索" class="search-input">
+        <a class="close-button">
+            <i class="cube-icon cube-close" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="cube-search-result"></div>
+</div>
+
+
+<div class="cube-author cube-sidebar" id="cube-author">
+    
+    
+    <style>
+        @media(min-width: 768px) {
+            .cube-author img {
+                margin-top: 40px;
+                margin-bottom: 10px;
+            }
+        }
+        @media(max-width: 1120px) and (min-width: 768px) {
+            .cube-author img {
+                width: 128px;
+                height: 128px;
+            }
+        }
+        @media(min-width: 1120px) {
+            .cube-author img {
+                width: 160px;
+                height: 160px;
+            }
+        }
+    </style>
+    
+    <img src="/images/avatar.png" alt="avatar" class="cube-avatar">
+    
+    
+    <span>AONOSORA</span>
+    
+    
+    <a title="今生今世轮回尽, 来世愿为幻想乡">今生今世轮回尽, 来世愿为幻想乡</a>
+    
+    <div class="count">
+        <a class="count articles"><span>14</span>文章</a>
+        <a class="count tags"><span>13</span>标签</a>
+        <a class="count categories"><span>3</span>分类</a>
+    </div>
+</div>
+
+
+
+<div class="cube-music cube-sidebar" id="cube-music">
+    <div class="cube-player aplayer" id="cube-player"></div>
+</div>
+<script>
+    (function (window) {
+        window.musicModule = {}
+        window.musicModule.musicConfig = '{"narrow":false,"autoplay":false,"showlrc":3,"theme":"#b7daff","mutex":true,"mode":"circulation","preload":"auto","listmaxheight":"513px","music":[{"title":"Dear friends","author":"TRIPLANE","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/TRIPLANE - Dear friends.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Dear friends - TRIPLANE.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/TRIPLANE - Dear friends.jpg"},{"title":"Butter-Fly","author":"和田光司","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/和田光司 - Butter-Fly (ピアノヴァージョン).mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Butter-Fly (ピアノヴァージョン) - 和田光司.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/和田光司 - Butter-Fly (ピアノヴァージョン).jpg"},{"title":"宵闇花火","author":"葉月ゆら","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/葉月ゆら - 宵闇花火.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/宵闇花火 - 葉月ゆら.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/葉月ゆら - 宵闇花火.jpg"}]}'
+        window.musicModule.lrcConfig = {
+            open: '开启歌词',
+            close: '关闭歌词'
+        }
+    })(window)
+</script>
+
+
+
+<div class="cube-recent-posts cube-sidebar" id="cube-recent-posts">
+    <div class="title">
+        <a>近期文章</a>
+    </div>
+    <ul class="list">
+        
+        
+        <li>
+            <!-- TODO 如果文章要显示图片，那么在front-matter上添加preview属性(url or path) -->
+            
+            
+            <div class="preview">
+                <p class="index first">
+                    <span>1</span>
+                </p>
+                <div class="image" style="background-image: url(/images/previews/测试各种markdown的样式.png);"></div>
+                <div class="info">
+                    <p class="title">
+                        <a href="/2017/07/28/测试各种markdown的样式/" title="测试各种markdown的样式">测试各种markdown的样式</a>
+                    </p>
+                    <p class="date">
+                        2017-07-28
+                    </p>
+                </div>
+            </div>
+            
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>2</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/03/04/博客搬迁/" title="博客搬迁">博客搬迁</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>3</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/01/11/xampp-phpstorm的简单配置/" title="xampp + phpstorm的简单配置">xampp + phpstorm的简单配置</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>4</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/11/07/某crackme破解/" title="某crackme破解">某crackme破解</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>5</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/10/31/脱壳练习1/" title="记一次小软件脱壳">记一次小软件脱壳</a>
+                </p>
+            </div>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-categories cube-sidebar" id="cube-categories">
+    <div class="title">
+        <a href="/categories">分类</a>
+    </div>
+    <div class="cube-boxs">
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/Python/">#Python</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/前端/">#前端</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/categories/逆向工程/">#逆向工程</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="cube-tagcloud cube-sidebar" id="cube-tagcloud">
+    <div class="title">
+        <a href="/tags">标签云</a>
+    </div>
+    <div class="cube-boxs">
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/杂谈/">#杂谈</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/python/">#python</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/javascript/">#javascript</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/AngularJS/">#AngularJS</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/php/">#php</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/网络相关/">#网络相关</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/云服务器/">#云服务器</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/逆向/">#逆向</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/网络安全/">#网络安全</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/Vue/">#Vue</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/Angular/">#Angular</a>
+        </div>
+        
+        
+        <div class="cube-box ">
+            <a href="/tags/React/">#React</a>
+        </div>
+        
+        
+        <div class="cube-box-bg ">
+            <a href="/tags/博客搭建/">#博客搭建</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="cube-links cube-sidebar" id="cube-links">
+    <div class="title">
+        <a>个人链接</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/GitHub.png">
+            
+            <a href="https://github.com/ZEROKISEKI" target="_blank">GitHub</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/Coding.png">
+            
+            <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/SF.png">
+            
+            <a href="https://segmentfault.com/u/aonosora" target="_blank">SF社区</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/开发者头条.png">
+            
+            <a href="https://toutiao.io/u/148070" target="_blank">开发者头条</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-friend-links cube-sidebar" id="cube-friend-links">
+    <div class="title">
+        <a>友情链接</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/micblo.png">
+            <a href="https://blog.micblo.com/" target="_blank">罗大佬</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/DIYgod.jpg">
+            <a href="https://www.anotherhome.net/" target="_blank">DIYgod</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="/images/friend_links.jpg ">
+            <a href="https://aonosora.com/" target="_blank">咪西西の部落格</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+    </div>
+</div>
+<footer class="cube-footer">
+    
+© 2017 AONOSORA
+
+<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+</footer>
+<!-- inject:script -->
+<script src="/js/script.js"></script>
+<!-- endinject -->
+<div class="cube-loading out"></div>
+</body>
+</html>
